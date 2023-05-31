@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import authService from './../../services/auth.services'
 import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../contexts/auth.contexts'
 
 function LoginForm() {
 
@@ -10,24 +11,30 @@ function LoginForm() {
         password: ''
     })
 
+    const navigate = useNavigate()
+    const { authenticateUser, storeToken } = useContext(AuthContext)
+
     const handleInputChange = e => {
         const { value, name } = e.target
         setLoginData({ ...loginData, [name]: value })
     }
 
     const handleSubmit = e => {
+
         e.preventDefault()
 
         authService
             .login(loginData)
             .then(({ data }) => {
                 console.log("RESPUESTA", data)
+                storeToken(data.authToken)
+                authenticateUser()
                 navigate('/')
             })
             .catch(err => console.log(err))
     }
 
-    const navigate = useNavigate()
+
 
 
     const { password, email } = loginData
@@ -35,7 +42,6 @@ function LoginForm() {
     return (
 
         <Form onSubmit={handleSubmit}>
-
 
             <Form.Group className="mb-3" controlId="email">
                 <Form.Label>Email</Form.Label>
