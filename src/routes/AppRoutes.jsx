@@ -15,7 +15,6 @@ const AppRoutes = () => {
             <Route path='/offer/:offer_id' element={<OfferDetails />} />
             <Route path='/signUp' element={<SignUpPage />} />
             <Route path='/login' element={<LoginPage />} />
-
             <Route path='/profile' element={<PrivateRoute />}>
                 <Route path='' element={<ProfilePage />} />
             </Route>
