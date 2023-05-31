@@ -21,7 +21,7 @@ function Navigation() {
                                 <>
                                     <Nav.Link as="span" onClick={logout}>Logout</Nav.Link>
                                     <Nav.Link as="span">
-                                        <Link to="/perfil">¡Hola, {user.username}!</Link>
+                                        <Link to="/profile">¡Hola, {user.username}!</Link>
                                     </Nav.Link>
                                 </>
                                 :
