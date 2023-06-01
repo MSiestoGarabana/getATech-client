@@ -8,7 +8,7 @@ function EditUserForm() {
 
     const [editData, setEditData] = useState({
         username: '',
-        email: 'sdadsa',
+        email: '',
         role: '',
         _id: ''
     })

@@ -7,16 +7,19 @@ import LoginPage from '../pages/LoginPage/LoginPage'
 import ProfilePage from '../pages/ProfilePage/ProfilePage'
 import PrivateRoute from './PrivateRoute'
 import EditUserPage from '../pages/EditUserPage/EditUserPage'
+import EditOfferPage from '../pages/EditOfferPage/EditOfferPage'
 
 const AppRoutes = () => {
     return (
         <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path='/newOffer' element={<NewOfferPage />} />
+            <Route path='/newoffer' element={<NewOfferPage />} />
             <Route path='/offer/:offer_id' element={<OfferDetails />} />
-            <Route path='/signUp' element={<SignUpPage />} />
+            <Route path='/offer/editoffer/:offer_id' element={<EditOfferPage />} />
+            <Route path='/signup' element={<SignUpPage />} />
             <Route path='/login' element={<LoginPage />} />
-            <Route path='/editUser/:userId' element={<EditUserPage />} />
+            <Route path='/user/:user_id' element={""} />
+            <Route path='/user/edituser/:userId' element={<EditUserPage />} />
             <Route path='/profile' element={<PrivateRoute />}>
                 <Route path='' element={<ProfilePage />} />
             </Route>
