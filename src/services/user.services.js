@@ -4,8 +4,16 @@ class UserService{
 
     constructor(){
         this.api = axios.create({
-            baseURL: `${process.nextTick.REACT_APP_API_URL}api/user`
+            baseURL: `${process.env.REACT_APP_API_URL}api/user`
         })
+    }
+
+    getAllUsers(){
+        return this.api.get('/allUsers')
+    }
+
+    getUserById(id){
+        return this.api.get(`/${id}`)
     }
 
     userDelete(_id){
@@ -14,7 +22,7 @@ class UserService{
 
     userUpdate(userData){
         let {_id} = userData
-        return this.api.post(`${_id}/edit`)
+        return this.api.post(`${_id}/edit`, userData)
     }
 
 }
