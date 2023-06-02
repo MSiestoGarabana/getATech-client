@@ -10,9 +10,8 @@ function EditUserForm() {
         username: '',
         email: '',
         role: '',
-        _id: ''
     })
-    const { username, email, role, _id } = editData
+    const { username, email, role } = editData
 
 
     const navigate = useNavigate()
@@ -37,7 +36,7 @@ function EditUserForm() {
         setEditData({ ...editData, [name]: value })
     }
 
-    let userData = { username, email, role, _id }
+    let userData = { username, email, role }
     const handleSubmit = e => {
         e.preventDefault()
 

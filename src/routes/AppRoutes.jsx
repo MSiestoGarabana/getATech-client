@@ -8,6 +8,7 @@ import ProfilePage from '../pages/ProfilePage/ProfilePage'
 import PrivateRoute from './PrivateRoute'
 import EditUserPage from '../pages/EditUserPage/EditUserPage'
 import EditOfferPage from '../pages/EditOfferPage/EditOfferPage'
+import UserListPage from '../pages/UserListPage/UserListPage'
 
 const AppRoutes = () => {
     return (
@@ -18,6 +19,7 @@ const AppRoutes = () => {
             <Route path='/offer/editoffer/:offer_id' element={<EditOfferPage />} />
             <Route path='/signup' element={<SignUpPage />} />
             <Route path='/login' element={<LoginPage />} />
+            <Route path='/user/list' element={<UserListPage />} />
             <Route path='/user/:user_id' element={""} />
             <Route path='/user/edituser/:userId' element={<EditUserPage />} />
             <Route path='/profile' element={<PrivateRoute />}>

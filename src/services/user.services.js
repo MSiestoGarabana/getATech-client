@@ -9,7 +9,7 @@ class UserService{
     }
 
     getAllUsers(){
-        return this.api.get('/allUsers')
+        return this.api.get('/getAllUsers')
     }
 
     getUserById(id){

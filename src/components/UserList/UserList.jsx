@@ -1,8 +1,15 @@
+import UserCard from '../UserCard/UserCard'
+import { Col } from 'react-bootstrap'
 
-function UserList() {
-    const [users, setUsers] = useState()
+function UserList({ users }) {
     return (
-        <h1>UserList</h1>
+        users.map(elm => {
+            return (
+                <Col md={{ span: 4 }} key={elm._id}>
+                    <UserCard {...elm} />
+                </Col>
+            )
+        })
     )
 }
 

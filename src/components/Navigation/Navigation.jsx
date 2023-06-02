@@ -14,6 +14,9 @@ function Navigation() {
                     <Nav.Link as="span">
                         <Link to="/">Home </Link>
                     </Nav.Link>
+                    <Nav.Link as="span">
+                        <Link to="/user/list"> UserList </Link>
+                    </Nav.Link>
                     <Navbar.Collapse id="basic-navBar-nav">
                         {
                             user

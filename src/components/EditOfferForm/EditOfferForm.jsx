@@ -5,7 +5,6 @@ import offerService from "../../services/offer.services"
 
 function EditUserForm() {
 
-
     const [editData, setEditData] = useState({
         image: '',
         position: '',
@@ -16,15 +15,14 @@ function EditUserForm() {
         applicants: [],
         _id: ''
     })
+
     const { _id, image, position, salary, location, remoteVolume, description, applicants } = editData
-    console.log(editData)
 
     const navigate = useNavigate()
 
     useEffect(() => {
         loadOfferInfo()
     }, [])
-
 
     const { offer_id } = useParams()
 
