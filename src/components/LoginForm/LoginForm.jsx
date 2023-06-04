@@ -26,7 +26,6 @@ function LoginForm() {
         authService
             .login(loginData)
             .then(({ data }) => {
-                console.log("RESPUESTA", data)
                 storeToken(data.authToken)
                 authenticateUser()
                 navigate('/')

@@ -1,5 +1,4 @@
 function WelcomePage() {
-    console.log("welcomeeeee page joder")
     return (
         <div>
             <h1>Welcome</h1>

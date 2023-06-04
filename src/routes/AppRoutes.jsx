@@ -29,6 +29,7 @@ const AppRoutes = () => {
             <Route path='/profile' element={<PrivateRoute />}>
                 <Route path='' element={<ProfilePage />} />
             </Route>
+
             <Route path='*' element={<h1>Error</h1>} />
         </Routes>
     )
