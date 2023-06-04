@@ -1,6 +1,9 @@
+import CreateOfferForm from '../../components/CreateOfferForm/CreateOfferForm'
+
+
 function NewOfferPage() {
     return (
-        <h1>NewOfferPage</h1>
+        <CreateOfferForm />
     )
 }
 

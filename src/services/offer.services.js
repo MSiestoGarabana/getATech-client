@@ -6,6 +6,20 @@ class OfferService{
         this.api = axios.create({
             baseURL: `${process.env.REACT_APP_API_URL}api/offers`
         })
+        this.api.interceptors.request.use((config) => {
+ 
+            const storedToken = localStorage.getItem("authToken");
+         
+            if (storedToken) {
+                config.headers = { Authorization: `Bearer ${storedToken}` }
+            }
+         
+            return config
+        })
+    }
+
+    createOffer(offerData){
+        return this.api.post('/createOffer', offerData)
     }
 
     getAllOffers(){

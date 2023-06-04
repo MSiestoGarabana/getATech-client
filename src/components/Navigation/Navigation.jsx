@@ -10,6 +10,12 @@ import './Navigation.css'
 
 function Navigation() {
     const { user, logout } = useContext(AuthContext)
+
+    function handleLogOutClick() {
+        logout()
+        window.location.reload(false)
+    }
+
     return (
         <Navbar id="navBar" bg="dark" variant="dark">
             <Container id="navBar__container">
@@ -28,7 +34,7 @@ function Navigation() {
                                     ?
                                     <>
                                         <Dropdown.Item as={Button}>
-                                            <Nav.Link as={Button} onClick={logout}>Logout</Nav.Link>
+                                            <Nav.Link as={Button} onClick={handleLogOutClick}>Logout</Nav.Link>
                                         </Dropdown.Item>
 
                                         <Dropdown.Item as={Button}>

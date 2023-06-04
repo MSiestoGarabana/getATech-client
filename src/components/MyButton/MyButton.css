@@ -1,0 +1,8 @@
+.ProfilePage__newOfferButton {
+    background-color: black;
+}
+
+.ProfilePage__newOfferButton--link {
+    color: aliceblue;
+    text-decoration: none;
+}

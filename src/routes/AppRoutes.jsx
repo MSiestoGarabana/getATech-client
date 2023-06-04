@@ -14,7 +14,6 @@ const AppRoutes = () => {
     return (
         <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path='/newoffer' element={<NewOfferPage />} />
             <Route path='/offer/:offer_id' element={<OfferDetails />} />
             <Route path='/offer/editoffer/:offer_id' element={<EditOfferPage />} />
             <Route path='/signup' element={<SignUpPage />} />
@@ -22,6 +21,11 @@ const AppRoutes = () => {
             <Route path='/user/list' element={<UserListPage />} />
             <Route path='/user/:user_id' element={<ProfilePage />} />
             <Route path='/user/edituser/:userId' element={<EditUserPage />} />
+
+            <Route path='/newOffer' element={<PrivateRoute />}>
+                <Route path='' element={<NewOfferPage />} />
+            </Route>
+
             <Route path='/profile' element={<PrivateRoute />}>
                 <Route path='' element={<ProfilePage />} />
             </Route>

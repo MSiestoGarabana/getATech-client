@@ -1,5 +1,5 @@
 import './Footer.css'
-import CustomButton from '../CustomButton/CustomButton'
+import FooterButton from '../FooterButton/FooterButton'
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/auth.contexts';
 import userService from '../../services/user.services';
@@ -16,10 +16,10 @@ function Footer() {
 
     return (
         <footer>
-            <CustomButton icon={homeIcon} link="/" className="footerButton" />
-            <CustomButton icon={settingsIcon} link={``} className="footerButton" />
-            <CustomButton icon={chatIcon} link={``} className="footerButton" />
-            <CustomButton icon={profileIcon} link={`/user/${_id}`} className="footerButton" />
+            <FooterButton icon={homeIcon} link="/" className="footerButton" />
+            <FooterButton icon={settingsIcon} link={``} className="footerButton" />
+            <FooterButton icon={chatIcon} link={``} className="footerButton" />
+            <FooterButton icon={profileIcon} link={`/user/${_id}`} className="footerButton" />
         </footer>
     )
 }

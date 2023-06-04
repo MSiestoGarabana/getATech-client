@@ -1,8 +1,8 @@
 import { Button } from "react-bootstrap";
 import { Link } from 'react-router-dom'
-import './CustomButton.css'
+import './FooterButton.css'
 
-function CustomButton({ icon, link, className }) {
+function FooterButton({ icon, link, className }) {
     return (
         <Button className={className}>
             <Link className={`${className}__link`} to={link}>
@@ -12,4 +12,4 @@ function CustomButton({ icon, link, className }) {
     )
 }
 
-export default CustomButton
+export default FooterButton
