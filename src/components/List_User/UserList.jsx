@@ -1,5 +1,6 @@
 import UserCard from '../UserCard/UserCard'
 import { Col } from 'react-bootstrap'
+import './UserList.css'
 
 function UserList({ users }) {
     return (

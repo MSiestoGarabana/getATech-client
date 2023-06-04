@@ -1,44 +1,52 @@
 import { useContext } from 'react'
-import { Nav, Navbar, Container } from 'react-bootstrap'
+
+import { Nav, Navbar, Container, Dropdown, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.contexts'
-function Navigation() {
 
+import menuIcon from './navIcons/menu.png'
+
+import './Navigation.css'
+
+function Navigation() {
     const { user, logout } = useContext(AuthContext)
     return (
-        <Navbar bg="dark" variant="dark">
-            <Container>
+        <Navbar id="navBar" bg="dark" variant="dark">
+            <Container id="navBar__container">
                 <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-                <Navbar.Toggle aria-controls='basic-navbar-nav' />
-                <Nav className="me-auto">
-                    <Nav.Link as="span">
-                        <Link to="/">Home </Link>
-                    </Nav.Link>
-                    <Nav.Link as="span">
+                <Nav>
+                    {/* <Nav.Link as="span">
                         <Link to="/user/list"> UserList </Link>
-                    </Nav.Link>
-                    <Navbar.Collapse id="basic-navBar-nav">
-                        {
-                            user
-                                ?
-                                <>
-                                    <Nav.Link as="span" onClick={logout}>Logout</Nav.Link>
-                                    <Nav.Link as="span">
-                                        <Link to="/profile">¡Hola, {user.username}!</Link>
-                                    </Nav.Link>
-                                </>
-                                :
-                                <>
-                                    <Nav.Link as="span">
-                                        <Link to="/signup">Registro</Link>
-                                    </Nav.Link>
-                                    <Nav.Link as="span">
-                                        <Link to="/login">Login</Link>
-                                    </Nav.Link>
-                                </>
-                        }
+                    </Nav.Link> */}
+                    <Dropdown>
+                        <Dropdown.Toggle>
+                            <img src={menuIcon} alt='menuIcon' />
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            {
+                                user
+                                    ?
+                                    <>
+                                        <Dropdown.Item as={Button}>
+                                            <Nav.Link as={Button} onClick={logout}>Logout</Nav.Link>
+                                        </Dropdown.Item>
 
-                    </Navbar.Collapse>
+                                        <Dropdown.Item as={Button}>
+                                            <Link to="/profile">¡Hola, {user.username}!</Link>
+                                        </Dropdown.Item>
+                                    </>
+                                    :
+                                    <>
+                                        <Dropdown.Item as={Button}>
+                                            <Link to="/signup">Registro</Link>
+                                        </Dropdown.Item>
+                                        <Dropdown.Item as={Button}>
+                                            <Link to="/login">Login</Link>
+                                        </Dropdown.Item>
+                                    </>
+                            }
+                        </Dropdown.Menu>
+                    </Dropdown>
                 </Nav>
             </Container>
         </Navbar>

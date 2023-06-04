@@ -5,13 +5,17 @@ import Navigation from './Navigation/Navigation';
 import Footer from './Footer/Footer';
 
 function App() {
+
   return (
     <div className="App">
       <Navigation />
-      <AppRoutes />
+      <div className='routes__container'>
+        <AppRoutes />
+      </div>
       <Footer />
     </div>
   );
+
 }
 
 export default App;

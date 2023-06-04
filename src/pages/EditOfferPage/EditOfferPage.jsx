@@ -1,3 +1,5 @@
+import './EditOfferPage.css'
+
 import { Container, Row, Col } from 'react-bootstrap'
 import EditOfferForm from './../../components/EditOfferForm/EditOfferForm'
 

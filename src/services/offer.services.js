@@ -24,7 +24,6 @@ class OfferService{
         let {_id} = userData
         return this.api.post(`${_id}/editOffer`, userData)
     }
-
 }
 
 const offerService = new OfferService()

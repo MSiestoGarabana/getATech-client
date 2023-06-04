@@ -1,5 +1,5 @@
 import { Spinner } from "react-bootstrap"
-import UserList from "../../components/UserList/UserList"
+import UserList from "../../components/List_User/UserList"
 import { useState, useContext, useEffect } from "react"
 import { Container, Row, Modal, Button } from "react-bootstrap"
 import userService from '../../services/user.services'

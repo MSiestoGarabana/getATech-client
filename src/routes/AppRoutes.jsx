@@ -20,12 +20,11 @@ const AppRoutes = () => {
             <Route path='/signup' element={<SignUpPage />} />
             <Route path='/login' element={<LoginPage />} />
             <Route path='/user/list' element={<UserListPage />} />
-            <Route path='/user/:user_id' element={""} />
+            <Route path='/user/:user_id' element={<ProfilePage />} />
             <Route path='/user/edituser/:userId' element={<EditUserPage />} />
             <Route path='/profile' element={<PrivateRoute />}>
                 <Route path='' element={<ProfilePage />} />
             </Route>
-
             <Route path='*' element={<h1>Error</h1>} />
         </Routes>
     )
