@@ -11,7 +11,6 @@ import './ProfilePage.css'
 function ProfilePage() {
 
     const { username, _id, role } = getSessionData()
-    console.log(_id)
 
     return (
         <Container className="profilePage__container">
