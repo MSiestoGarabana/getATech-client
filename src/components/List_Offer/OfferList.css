@@ -1,12 +1,11 @@
 .offerList__container {
     display: flex;
-    gap: 3%;
+    gap: 5%;
     height: 30%;
+    width: 100%;
     overflow-x: auto;
     white-space: nowrap;
-    width: fit-content;
     padding: 2%;
     overflow-x: scroll;
-    white-space: nowrap;
     scroll-behavior: smooth;
 }

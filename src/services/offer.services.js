@@ -40,9 +40,7 @@ class OfferService{
     }
 
     updateOffer(offerData){
-        console.log("hey")
         const {_id: offer_id} = offerData
-        console.log("offerid?", offer_id)
         return this.api.post(`${offer_id}/editOffer`, offerData)
     }
 }

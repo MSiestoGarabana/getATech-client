@@ -1,9 +1,7 @@
 import './UserDetailComponent.css'
 
 function UserDetailComponent({ userData }) {
-    console.log("userData", userData)
     const { role } = userData
-    console.log("ROOOOOOOL", role)
 
     return (
         <div className='userDetail__body'>

@@ -7,19 +7,27 @@ import './OfferList.css'
 
 function OfferList() {
 
-    let sessionData = getSessionData()
-    console.log("SESION DATA", sessionData._id)
+    const { _id: session_id } = getSessionData()
+
     const [offersData, setOffersData] = useState([])
-    console.log(offersData)
 
     useEffect(() => {
         getOffersData()
-    }, [])
+    }, [session_id])
 
     function getOffersData() {
         offerService
             .getAllOffers()
-            .then(({ data }) => setOffersData(data))
+            .then(({ data }) => {
+                console.log("session_id", session_id)
+                const filteredOffers = data.filter(offer => {
+                    console.log(offer.owner === session_id)
+                    console.log("OFFEEEEER", offer)
+                    return offer.owner === session_id
+                });
+                console.log("FILTERED OFFERRRRSSSS", filteredOffers)
+                setOffersData(filteredOffers)
+            })
             .catch(err => console.log(err))
     }
 

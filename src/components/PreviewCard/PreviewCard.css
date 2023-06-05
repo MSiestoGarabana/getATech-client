@@ -1,6 +1,4 @@
-.previewCard__container {
-    background-color: aquamarine;
-}
+.previewCard__container {}
 
 .previewCard {
     height: 100%;
@@ -16,6 +14,4 @@
     height: 50%;
 }
 
-.previewCard__container--info {
-    background-color: blanchedalmond;
-}
+.previewCard__container--info {}
