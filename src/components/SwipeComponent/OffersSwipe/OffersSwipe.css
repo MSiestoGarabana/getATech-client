@@ -1,0 +1,32 @@
+.offerCard__text--position {
+    text-align: right;
+}
+
+.offerCard__container--text {
+    background-color: rgb(255, 255, 255);
+    padding: 5%;
+    height: 30%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    text-align: center;
+}
+
+.offerCard__container--logo-position {
+    display: flex;
+    justify-content: space-around;
+}
+
+.offerCard__container--salary-Remote {
+    display: flex;
+    justify-content: space-around;
+}
+
+.offerCard__logo {
+    background-size: cover;
+    border-radius: 20px;
+    width: 100px;
+    height: 50px;
+}

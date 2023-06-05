@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import userService from '../../../services/user.services'
 
 
-function EmployeesSwipe({ swiped, outOfFrame }) {
+function EmployeesSwipe({ setLastDirection }) {
 
     const [employeesData, setEmployeesData] = useState([])
 
@@ -19,6 +19,26 @@ function EmployeesSwipe({ swiped, outOfFrame }) {
                 setEmployeesData(filteredUsers);
             })
             .catch(err => console.log(err))
+    }
+
+
+
+    const swiped = (direction, _id) => {
+        console.log(direction)
+        if (direction === "right") {
+
+            offerService
+                .updateOffer(_id)
+                .then(offer => console.log())
+                .catch(err => console.log(err))
+        }
+
+        console.log('removing: ' + _id)
+        setLastDirection(direction)
+    }
+
+    const outOfFrame = (name) => {
+        console.log(name + ' left the screen!')
     }
 
     return (

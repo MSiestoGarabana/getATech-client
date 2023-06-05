@@ -13,7 +13,7 @@ function getSessionData() {
             .catch(err => console.log(err))
     }, [user])
 
-    return sessionData
+    return sessionData && sessionData
 }
 
 export default getSessionData

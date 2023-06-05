@@ -5,22 +5,19 @@ import userService from "../../services/user.services"
 
 function EditUserForm() {
 
-
     const [editData, setEditData] = useState({
         username: '',
         email: '',
         role: '',
     })
-    const { username, email, role } = editData
 
+    const { username, email } = editData
 
     const navigate = useNavigate()
-
 
     useEffect(() => {
         loadUserInfo()
     }, [])
-
 
     const { userId } = useParams()
 
@@ -36,7 +33,8 @@ function EditUserForm() {
         setEditData({ ...editData, [name]: value })
     }
 
-    let userData = { username, email, role }
+    let userData = editData
+
     const handleSubmit = e => {
         e.preventDefault()
 

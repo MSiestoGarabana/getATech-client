@@ -1,0 +1,15 @@
+.userDetail__body {
+    height: 80%;
+    border: 1px solid black;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.userDetail__img {
+    width: 30%;
+    height: 15%;
+    border-radius: 650px;
+}

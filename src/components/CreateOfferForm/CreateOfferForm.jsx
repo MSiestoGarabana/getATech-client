@@ -1,10 +1,13 @@
 import { useState } from "react"
 import { Form, Button, FormGroup } from "react-bootstrap"
+import FormError from "../../components/FormError/FormError"
 import { useNavigate } from "react-router-dom"
 import uploadServices from "../../services/upload.services"
 import offerService from "../../services/offer.services"
 
-const SignupForm = () => {
+import './CreateOfferForm.css'
+
+const CreateOfferForm = () => {
 
     const [newOfferData, setNewOfferData] = useState({
         image: '',
@@ -15,9 +18,9 @@ const SignupForm = () => {
         remoteVolume: '',
         description: '',
     })
-    console.log(newOfferData)
 
     const [loadingImage, setLoadingImage] = useState(false)
+    const [errors, setErrors] = useState([])
     const navigate = useNavigate()
 
     const handleInputChange = e => {
@@ -52,7 +55,9 @@ const SignupForm = () => {
         offerService
             .createOffer(newOfferData)
             .then(({ data }) => navigate('/'))
-            .catch(err => console.log(err))
+            .catch(err => {
+                setErrors(err.response.data.errorMessages)
+            })
     }
 
     return (
@@ -90,6 +95,8 @@ const SignupForm = () => {
                 <Form.Control type="text" onChange={handleInputChange} name="description" />
             </Form.Group>
 
+            {errors.length > 0 && <FormError>{errors.map(elm => <p>{elm}</p>)}</FormError>}
+
             <div className="d-grid">
                 <Button variant="dark" type="submit" disabled={loadingImage}>
                     {loadingImage ? "Loading Image" : "Register"}
@@ -100,4 +107,4 @@ const SignupForm = () => {
     )
 }
 
-export default SignupForm
+export default CreateOfferForm

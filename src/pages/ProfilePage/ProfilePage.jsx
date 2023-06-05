@@ -7,16 +7,22 @@ import { Container } from "react-bootstrap"
 import MyButton from "../../components/MyButton/MyButton"
 
 import './ProfilePage.css'
+import UserDetailComponent from "../../components/UserDetailComponent/UserDetailComponent";
 
 function ProfilePage() {
 
-    const { username, _id, role } = getSessionData()
+    const userData = getSessionData()
 
     return (
         <Container className="profilePage__container">
-            <h1>Hola, {username}</h1>
-            {role === 'EMPLOYER' && <MyButton text="Create Offer" link="/newOffer" className="ProfilePage__newOfferButton" />}
-            <hr />
+            <UserDetailComponent userData={userData} />
+            {userData.role === 'EMPLOYEE' && <MyButton text="Update Profile" link={`/user/editUser/${userData._id}`} className="ProfilePage__updateProfileButton" />}
+            {userData.role === 'EMPLOYER' &&
+                <div style={{ marginTop: "5%", display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center" }}>
+                    <MyButton text="Create Offer" link="/newOffer" className="ProfilePage__newOfferButton" />
+                    <MyButton text="Update Profile" link={`/user/editUser/${userData._id}`} className="ProfilePage__updateProfileButton" />
+                </div>
+            }
         </Container>
     )
 }

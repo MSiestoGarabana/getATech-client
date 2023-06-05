@@ -7,9 +7,12 @@ import { AuthContext } from '../../contexts/auth.contexts'
 import menuIcon from './navIcons/menu.png'
 
 import './Navigation.css'
+import getSessionData from '../../utils/get-session-data'
 
 function Navigation() {
-    const { user, logout } = useContext(AuthContext)
+    const { logout } = useContext(AuthContext)
+
+    const userData = getSessionData()
 
     function handleLogOutClick() {
         logout()
@@ -30,7 +33,7 @@ function Navigation() {
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                             {
-                                user
+                                userData
                                     ?
                                     <>
                                         <Dropdown.Item as={Button}>
@@ -38,7 +41,7 @@ function Navigation() {
                                         </Dropdown.Item>
 
                                         <Dropdown.Item as={Button}>
-                                            <Link to="/profile">¡Hola, {user.username}!</Link>
+                                            <Link to="/profile">My profile</Link>
                                         </Dropdown.Item>
                                     </>
                                     :

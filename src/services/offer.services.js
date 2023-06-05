@@ -34,9 +34,9 @@ class OfferService{
         return this.api.post(`/${_id}/deleteOffer`)
     }
 
-    updateOffer(userData){
-        let {_id} = userData
-        return this.api.post(`${_id}/editOffer`, userData)
+    updateOffer(offer_id, userData){
+        const {_id: user_id} = userData
+        return this.api.post(`${offer_id}/editOffer`, {user_id})
     }
 }
 

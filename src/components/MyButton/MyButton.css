@@ -1,8 +1,19 @@
 .ProfilePage__newOfferButton {
     background-color: black;
+    border: none;
 }
 
 .ProfilePage__newOfferButton--link {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.ProfilePage__updateProfileButton {
+    background-color: black;
+    border: none;
+}
+
+.ProfilePage__updateProfileButton--link {
     color: aliceblue;
     text-decoration: none;
 }
