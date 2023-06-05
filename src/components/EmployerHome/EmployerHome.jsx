@@ -7,6 +7,7 @@ function EmployerHomePage({ employerData }) {
     return (
         <>
             <OfferList />
+            <h1>Active Offers</h1>
             <MyButton text="Create Offer" link="/newOffer" className="ProfilePage__newOfferButton" />
             <UserDetailComponent userData={employerData} />
         </>

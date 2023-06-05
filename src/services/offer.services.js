@@ -34,9 +34,16 @@ class OfferService{
         return this.api.post(`/${_id}/deleteOffer`)
     }
 
-    updateOffer(offer_id, userData){
+    newApplicant(offer_id, userData,){
         const {_id: user_id} = userData
-        return this.api.post(`${offer_id}/editOffer`, {user_id})
+        return this.api.post(`${offer_id}/newApplicant`, {user_id})
+    }
+
+    updateOffer(offerData){
+        console.log("hey")
+        const {_id: offer_id} = offerData
+        console.log("offerid?", offer_id)
+        return this.api.post(`${offer_id}/editOffer`, offerData)
     }
 }
 

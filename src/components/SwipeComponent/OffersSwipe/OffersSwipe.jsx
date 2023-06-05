@@ -28,7 +28,7 @@ function OffersSwipe({ setLastDirection }) {
     const swiped = (direction, offer_id) => {
         if (direction === "right") {
             offerService
-                .updateOffer(offer_id, userData)
+                .newApplicant(offer_id, userData)
                 .then(offer => console.log(offer))
                 .catch(err => console.log(err))
         }

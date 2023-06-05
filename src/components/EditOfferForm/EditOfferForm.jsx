@@ -15,6 +15,7 @@ function EditUserForm() {
         applicants: [],
         _id: ''
     })
+    console.log("edit data in editform", editData)
 
     const { _id, image, position, salary, location, remoteVolume, description, applicants } = editData
 
@@ -39,11 +40,12 @@ function EditUserForm() {
     }
 
     let offerData = { _id, image, position, salary, location, remoteVolume, description, applicants }
+
     const handleSubmit = e => {
         e.preventDefault()
 
         offerService
-            .updateOffer(offerData)
+            .updateOffer(editData)
             .then(({ data }) => navigate('/'))
             .catch(err => console.log(err))
     }

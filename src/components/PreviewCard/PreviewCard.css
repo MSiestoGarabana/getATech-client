@@ -1,6 +1,21 @@
+.previewCard__container {
+    background-color: aquamarine;
+}
+
 .previewCard {
-    background-color: blue;
     height: 100%;
     width: 150px;
     border-radius: 10px;
+    border: 1px solid black;
+    box-shadow: 1px 1px 6px black;
+    padding: 1%;
+}
+
+.previewCard__image {
+    width: 100%;
+    height: 50%;
+}
+
+.previewCard__container--info {
+    background-color: blanchedalmond;
 }
