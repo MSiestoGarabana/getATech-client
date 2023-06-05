@@ -19,7 +19,7 @@ function ProfilePage() {
             {userData.role === 'EMPLOYEE' && <MyButton text="Update Profile" link={`/user/editUser/${userData._id}`} className="ProfilePage__updateProfileButton" />}
             {userData.role === 'EMPLOYER' &&
                 <div style={{ marginTop: "5%", display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center" }}>
-                    <MyButton text="Create Offer" link="/newOffer" className="ProfilePage__newOfferButton" />
+
                     <MyButton text="Update Profile" link={`/user/editUser/${userData._id}`} className="ProfilePage__updateProfileButton" />
                 </div>
             }
