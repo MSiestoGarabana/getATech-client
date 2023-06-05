@@ -1,14 +1,14 @@
 import TinderCard from 'react-tinder-card'
 import { useState, useEffect } from "react"
 import offerService from '../../../services/offer.services'
-import getSessionData from '../../../utils/get-session-data'
+import { useSessionData } from '../../../utils/get-session-data'
 import './OffersSwipe.css'
 
 function OffersSwipe({ setLastDirection }) {
 
     const [offersData, setOffersData] = useState([])
 
-    const userData = getSessionData()
+    const userData = useSessionData()
 
     useEffect(() => {
         loadOffersData()

@@ -2,18 +2,16 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../contexts/auth.contexts';
 import userService from '../services/user.services';
 
-function getSessionData() {
+export function useSessionData() {
     const { user } = useContext(AuthContext)
     const [sessionData, setSessionData] = useState({})
 
     useEffect(() => {
         userService
-        .getUserById(user?._id)
-            .then(({data}) => {setSessionData(data)})
+            .getUserById(user?._id)
+            .then(({ data }) => { setSessionData(data) })
             .catch(err => console.log(err))
     }, [user])
 
     return sessionData && sessionData
 }
-
-export default getSessionData

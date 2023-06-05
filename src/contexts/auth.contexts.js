@@ -24,17 +24,16 @@ function AuthProviderWrapper(props) {
     }
 
     const authenticateUser = () => {
-
         const token = localStorage.getItem("authToken")
 
-        if(token) {
+        if (token) {
             authService
-            .verify(token)
-            .then(({data}) => {
-                setUser(data)
-                setIsLoading(false)
-            })
-            .catch(err => logout())
+                .verify(token)
+                .then(({ data }) => {
+                    setUser(data)
+                    setIsLoading(false)
+                })
+                .catch(err => logout())
         } else {
             logout()
         }
@@ -44,11 +43,11 @@ function AuthProviderWrapper(props) {
         authenticateUser()
     }, [])
 
-    return(
-            <AuthContext.Provider value={{ user, authenticateUser, storeToken, logout, isLoading}}>
-                {props.children}
-            </AuthContext.Provider>
+    return (
+        <AuthContext.Provider value={{ user, authenticateUser, storeToken, logout, isLoading }}>
+            {props.children}
+        </AuthContext.Provider>
     )
 }
 
-export {AuthContext, AuthProviderWrapper}
+export { AuthContext, AuthProviderWrapper }

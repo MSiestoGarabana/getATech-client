@@ -21,19 +21,17 @@ function EmployeesSwipe({ setLastDirection }) {
             .catch(err => console.log(err))
     }
 
-
-
     const swiped = (direction, _id) => {
-        console.log(direction)
+
         if (direction === "right") {
 
             offerService
-                .updateOffer(_id)
-                .then(offer => console.log())
+                .newApplicant(offer_id, userData)
+                .then(offer => console.log(offer))
                 .catch(err => console.log(err))
+
         }
 
-        console.log('removing: ' + _id)
         setLastDirection(direction)
     }
 

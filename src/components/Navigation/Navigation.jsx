@@ -7,12 +7,12 @@ import { AuthContext } from '../../contexts/auth.contexts'
 import menuIcon from './navIcons/menu.png'
 
 import './Navigation.css'
-import getSessionData from '../../utils/get-session-data'
+import { useSessionData } from '../../utils/get-session-data'
 
 function Navigation() {
     const { logout } = useContext(AuthContext)
 
-    const userData = getSessionData()
+    const userData = useSessionData()
 
     function handleLogOutClick() {
         logout()
@@ -37,7 +37,7 @@ function Navigation() {
                                     ?
                                     <>
                                         <Dropdown.Item as={Button}>
-                                            <Nav.Link as={Button} onClick={handleLogOutClick}>Logout</Nav.Link>
+                                            <Nav.Link style={{ color: "black" }} onClick={handleLogOutClick}>Logout</Nav.Link>
                                         </Dropdown.Item>
 
                                         <Dropdown.Item as={Button}>

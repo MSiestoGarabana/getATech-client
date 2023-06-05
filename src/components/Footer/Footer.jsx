@@ -3,7 +3,7 @@ import FooterButton from '../FooterButton/FooterButton'
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/auth.contexts';
 import userService from '../../services/user.services';
-import getSessionData from '../../utils/get-session-data';
+import { useSessionData } from '../../utils/get-session-data';
 
 import homeIcon from './FooterIcons/white-home.png'
 import profileIcon from './FooterIcons/user.png'
@@ -12,7 +12,7 @@ import chatIcon from './FooterIcons/comment.png'
 
 function Footer() {
 
-    let { _id } = getSessionData()
+    let { _id } = useSessionData()
 
     return (
         <footer>
