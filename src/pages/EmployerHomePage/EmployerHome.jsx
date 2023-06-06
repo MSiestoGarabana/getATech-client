@@ -1,20 +1,26 @@
-import offerService from "../../services/offer.services"
+import { useState } from 'react'
 import OfferList from '../../components/List_Offer/OfferList'
-import UserDetailComponent from "../../components/UserDetailComponent/UserDetailComponent"
 import MyButton from "../../components/MyButton/MyButton"
+import EmployeesSwipe from '../../components/SwipeComponent/EmployeesSwipe/EmployeesSwipe'
 
-function EmployerHomePage({ employerData }) {
+function EmployerHomePage({ session_id }) {
+
+    const [selectedOffer, setSelectedOffer] = useState()
+
+    console.log(" selected offer info", selectedOffer)
+
+    let offer_id
+    if (selectedOffer) { offer_id = selectedOffer._id }
+
     return (
-
         <>
-            <OfferList />
+            <OfferList setSelectedOffer={setSelectedOffer} />
             <h1>Active Offers</h1>
             <MyButton text="Create Offer" link="/newOffer" className="ProfilePage__newOfferButton" />
-            <UserDetailComponent userData={employerData} />
+            {!selectedOffer && <h1>Select an offer to start scrolling</h1>}
+            {selectedOffer && <EmployeesSwipe offer_id={offer_id} session_id={session_id} />}
         </>
-
     )
 }
 export default EmployerHomePage
 
-//<EmployeesSwipe setLastDirection={setLastDirection} />

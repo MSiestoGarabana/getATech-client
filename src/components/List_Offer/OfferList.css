@@ -9,3 +9,8 @@
     overflow-x: scroll;
     scroll-behavior: smooth;
 }
+
+.offerList__button {
+    background-color: transparent;
+    border: none;
+}

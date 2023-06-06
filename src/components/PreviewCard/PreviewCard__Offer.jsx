@@ -10,7 +10,7 @@ function PreviewCard__Offer({ offerData }) {
                     <h1>{offerData.position}</h1>
                 </div>
             </div>
-            <MyButton text="Update Offer" link={`/offer/editoffer/${offerData._id}`} className="previewCard__offer" />
+
         </div>
     )
 }

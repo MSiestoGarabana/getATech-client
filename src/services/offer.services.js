@@ -34,9 +34,24 @@ class OfferService{
         return this.api.post(`/${_id}/deleteOffer`)
     }
 
-    newApplicant(offer_id, userData,){
+    newApplicant(offer_id, userData){
         const {_id: user_id} = userData
         return this.api.post(`${offer_id}/newApplicant`, {user_id})
+    }
+
+    newPreselected(offer_id, userData){
+        const {_id: user_id} = userData
+        return this.api.post(`${offer_id}/newPreselected`, {user_id})
+    }
+
+    newDiscarded(offer_id, userData){
+        const {_id: user_id} = userData
+        return this.api.post(`${offer_id}/newDiscarded`, {user_id})
+    }
+
+    newMatch(offer_id, userData){
+        const {_id: user_id} = userData
+        return this.api.post(`${offer_id}/newMatch`, {user_id})
     }
 
     updateOffer(offerData){
