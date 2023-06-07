@@ -18,7 +18,7 @@ function EditUserForm() {
         _id: ''
     })
 
-    const { _id, image, position, salary, location, remoteVolume, description, applicants } = editData
+    const { image, position, salary, location, remoteVolume, description } = editData
 
     const navigate = useNavigate()
 
@@ -51,7 +51,7 @@ function EditUserForm() {
 
     return (
 
-        <Form className="overflow-auto" onSubmit={handleSubmit} id={"form"}>
+        <Form onSubmit={handleSubmit}>
 
             <Form.Group className="mb-3" controlId="image">
                 <Form.Label>Edit image</Form.Label>

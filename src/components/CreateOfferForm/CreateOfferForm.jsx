@@ -60,7 +60,7 @@ const CreateOfferForm = () => {
 
     return (
 
-        <Form onSubmit={handleSubmit}>
+        <Form className="overflow-auto" id="createOfferForm__container" onSubmit={handleSubmit}>
 
             <Form.Group className="mb-3" controlId="position">
                 <Form.Label>Position</Form.Label>

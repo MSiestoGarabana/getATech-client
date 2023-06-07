@@ -1,0 +1,4 @@
+#createOfferForm__container {
+    overflow: scroll;
+    scroll-behavior: smooth;
+}
