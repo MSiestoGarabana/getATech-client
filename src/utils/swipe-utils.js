@@ -1,4 +1,5 @@
 import offerService from "../services/offer.services"
+
 function manageMatch(user, offer_id, employee) {
     if (user === "employer") {
         Promise.all([
@@ -7,6 +8,7 @@ function manageMatch(user, offer_id, employee) {
         ])
         .catch(err => console.log(err))
     }
+    
     if(user === "employee") {
         Promise.all([
             offerService.newMatch(offer_id, employee),

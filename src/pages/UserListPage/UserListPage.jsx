@@ -7,11 +7,12 @@ import userService from '../../services/user.services'
 function UserListPage() {
 
     const [users, setUsers] = useState()
+
     useEffect(() => {
         loadUsers()
     }, [])
 
-    function loadUsers() {
+    const loadUsers = () => {
         userService
             .getAllUsers()
             .then(({ data }) => setUsers(data))

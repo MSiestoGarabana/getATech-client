@@ -17,7 +17,6 @@ function EditUserForm() {
         applicants: [],
         _id: ''
     })
-    console.log("edit data in editform", editData)
 
     const { _id, image, position, salary, location, remoteVolume, description, applicants } = editData
 
@@ -41,8 +40,6 @@ function EditUserForm() {
         setEditData({ ...editData, [name]: value })
     }
 
-    let offerData = { _id, image, position, salary, location, remoteVolume, description, applicants }
-
     const handleSubmit = e => {
         e.preventDefault()
 
@@ -54,7 +51,7 @@ function EditUserForm() {
 
     return (
 
-        <Form onSubmit={handleSubmit} id={"form"}>
+        <Form className="overflow-auto" onSubmit={handleSubmit} id={"form"}>
 
             <Form.Group className="mb-3" controlId="image">
                 <Form.Label>Edit image</Form.Label>

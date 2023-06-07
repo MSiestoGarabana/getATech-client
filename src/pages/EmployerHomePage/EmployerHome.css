@@ -12,6 +12,25 @@
     justify-content: space-around;
 }
 
+.employerHome__container--downSection {
+    display: flex;
+    flex-direction: row;
+}
+
 .employerHome__text--noOfferSelected {
     margin: 17%;
+}
+
+.employerHome__container--swipe {
+    width: 50%;
+    height: 100%;
+    background-color: aqua;
+}
+
+.employerHome__container--matches {
+    width: 50%;
+    height: 100%;
+    padding: 2%;
+    margin-top: 5%;
+    background-color: aqua;
 }

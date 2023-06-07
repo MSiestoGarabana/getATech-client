@@ -5,7 +5,6 @@ import './PreviewCard.css'
 
 function PreviewCard__Offer({ offer, setSelectedOffer }) {
 
-
     let navigate = useNavigate()
 
     return (

@@ -7,13 +7,11 @@ function EditOfferPage() {
 
     return (
 
-        <Container>
-            <Row>
-                <Col md={{ offset: 3, span: 6 }}>
-                    <h1>Edit offer data</h1>
-                    <hr />
-                    <EditOfferForm />
-                </Col>
+        <Container id="editOfferPage__container">
+            <Row >
+                <h1>Edit offer data</h1>
+                <hr />
+                <EditOfferForm />
             </Row>
         </Container >
     )

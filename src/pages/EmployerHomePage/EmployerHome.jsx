@@ -9,8 +9,8 @@ function EmployerHomePage({ session_id }) {
 
     const [selectedOffer, setSelectedOffer] = useState()
 
-    let offer_id
-    if (selectedOffer) { offer_id = selectedOffer._id }
+    /* let offer_id
+    if (selectedOffer) { offer_id = selectedOffer._id } */
 
     return (
         <>
@@ -21,10 +21,22 @@ function EmployerHomePage({ session_id }) {
                     <MyButton text="Create Offer" link="/newOffer" className="ProfilePage__newOfferButton" />
                 </div>
             </div>
-            <div>
-                {!selectedOffer && <h1 className='employerHome__text--noOfferSelected'>Select an offer to start scrolling</h1>}
-                {selectedOffer && <EmployeesSwipe offer_id={offer_id} session_id={session_id} />}
-            </div>
+
+            {!selectedOffer &&
+                <h1 className='employerHome__text--noOfferSelected'>
+                    Select an offer to start scrolling
+                </h1>}
+
+            {selectedOffer &&
+                <div className='employerHome__container--downSection'>
+                    <div className='employerHome__container--swipe'>
+                        <EmployeesSwipe offer={selectedOffer} session_id={session_id} />
+                    </div>
+                    <div className='employerHome__container--matches'>
+                        hey
+                    </div>
+                </div>}
+
         </>
     )
 }

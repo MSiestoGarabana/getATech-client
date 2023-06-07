@@ -6,9 +6,10 @@ import { manageEmployerRightSwipe, manageNewDiscarded } from '../../../utils/swi
 import './EmployeesSwipe.css'
 
 
-function EmployeesSwipe({ offer_id, session_id, setShowMatch }) {
-
+function EmployeesSwipe({ offer, setShowMatch }) {
+    let { _id: offer_id } = offer
     const [employeesData, setEmployeesData] = useState([])
+
 
     useEffect(() => {
 
@@ -17,11 +18,20 @@ function EmployeesSwipe({ offer_id, session_id, setShowMatch }) {
     }, [offer_id])
 
     function loadEmployeesData() {
+        let usersInDiscarded = offer.discarded
+        let usersInPreselected = offer.preselecteds
+        console.log("OFFER", offer, "USERS IN DISCARDED", usersInDiscarded, "USERS IN PRESELECTED", usersInPreselected)
 
         userService
             .getAllUsers()
             .then(({ data }) => {
-                const filteredUsers = data.filter(user => user.role === 'EMPLOYEE');
+                const filteredUsers = data.filter(user => {
+                    console.log(user)
+                    user.role === 'EMPLOYEE' &&
+                        !usersInDiscarded.includes(user) &&
+                        !usersInPreselected.includes(user)
+                }
+                );
                 setEmployeesData(filteredUsers);
             })
             .catch(err => console.log(err))
@@ -38,26 +48,25 @@ function EmployeesSwipe({ offer_id, session_id, setShowMatch }) {
 
     return (
         <>
-            {employeesData ? (
-                employeesData.map(employee => (
-                    <TinderCard
-                        className='employeesSwipe'
-                        id='swipe'
-                        key={employee.username}
-                        onSwipe={dir => swiped(dir, employee)}
-                        onCardLeftScreen={() => outOfFrame(employee.username)}
-                    >
-                        <div
-                            style={{ backgroundImage: `url(${employee.image})` }}
-                            className='employeeCard'
+            {employeesData ?
+                (
+                    employeesData.map((employee, i) => (
+                        <TinderCard
+                            className='employeesSwipe'
+                            id='swipe'
+                            key={i}
+                            onSwipe={dir => swiped(dir, employee)}
                         >
-                            <h3>{employee.username}</h3>
-                        </div>
-                    </TinderCard>
-                ))
-            ) : (
-                <h1>Cargando</h1>
-            )}
+                            <div style={{ backgroundImage: `url(${employee.image})` }} className='employeeCard'>
+                                <h3>{employee.username}</h3>
+                            </div>
+                        </TinderCard>
+                    ))
+                )
+                :
+                (
+                    <h1>Cargando</h1>
+                )}
         </>
     );
 }

@@ -1,6 +1,3 @@
-import { useContext } from "react"
-import { AuthContext } from "../../contexts/auth.contexts"
-import getUserById from '../../services/user.services'
 import { useSessionData } from '../../utils/get-session-data';
 
 import { Container } from "react-bootstrap"

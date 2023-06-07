@@ -50,10 +50,9 @@ const CreateOfferForm = () => {
     const handleSubmit = e => {
         e.preventDefault()
 
-        let offerData = newOfferData
         offerService
             .createOffer(newOfferData)
-            .then(({ data }) => navigate('/'))
+            .then(() => navigate('/'))
             .catch(err => {
                 setErrors(err.response.data.errorMessages)
             })

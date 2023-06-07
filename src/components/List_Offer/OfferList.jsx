@@ -19,9 +19,7 @@ function OfferList({ setSelectedOffer }) {
         offerService
             .getAllOffers()
             .then(({ data }) => {
-                const filteredOffers = data.filter(offer => {
-                    return offer.owner === session_id
-                });
+                const filteredOffers = data.filter(offer => offer.owner === session_id)
                 setOffersData(filteredOffers)
             })
             .catch(err => console.log(err))
@@ -29,10 +27,10 @@ function OfferList({ setSelectedOffer }) {
 
     return (
         <div className="offerList__container">
-            {offersData.map((offer, i) => {
+            {offersData.map((offer) => {
                 return (
                     <div key={offer._id} className="offerList__container--offer">
-                        <PreviewCard__Offer key={i} setSelectedOffer={setSelectedOffer} offer={offer} />
+                        <PreviewCard__Offer key={offer._id} setSelectedOffer={setSelectedOffer} offer={offer} />
                     </div>
                 )
             })}

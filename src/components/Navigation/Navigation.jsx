@@ -1,20 +1,24 @@
 import { useContext } from 'react'
 
 import { Nav, Navbar, Container, Dropdown, Button } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.contexts'
+
+import { useSessionData } from '../../utils/get-session-data'
 
 import menuIcon from './navIcons/menu.png'
 
 import './Navigation.css'
-import { useSessionData } from '../../utils/get-session-data'
 
 function Navigation() {
     const { logout } = useContext(AuthContext)
 
     const userData = useSessionData()
 
+    let navigate = useNavigate()
+
     function handleLogOutClick() {
+        navigate('/')
         logout()
         window.location.reload(false)
     }
@@ -24,9 +28,6 @@ function Navigation() {
             <Container id="navBar__container">
                 <Navbar.Brand href="#home">Navbar</Navbar.Brand>
                 <Nav>
-                    {/* <Nav.Link as="span">
-                        <Link to="/user/list"> UserList </Link>
-                    </Nav.Link> */}
                     <Dropdown>
                         <Dropdown.Toggle>
                             <img src={menuIcon} alt='menuIcon' />

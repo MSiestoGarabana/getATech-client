@@ -19,9 +19,11 @@ const AppRoutes = () => {
             <Route path='/signup' element={<SignUpPage />} />
             <Route path='/login' element={<LoginPage />} />
             <Route path='/user/list' element={<UserListPage />} />
-            <Route path='/user/:user_id' element={<ProfilePage />} />
+            {/* TODO: REVISAR RUTAS */}
             <Route path='/user/edituser/:userId' element={<EditUserPage />} />
 
+
+            {/* VER EJEMPLO DISCORED */}
             <Route path='/newOffer' element={<PrivateRoute />}>
                 <Route path='' element={<NewOfferPage />} />
             </Route>

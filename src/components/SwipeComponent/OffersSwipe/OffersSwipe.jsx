@@ -4,6 +4,7 @@ import offerService from '../../../services/offer.services'
 import { useSessionData } from '../../../utils/get-session-data'
 import { manageEmployeeRightSwipe } from '../../../utils/swipe-utils'
 import './OffersSwipe.css'
+import { Spinner } from 'react-bootstrap'
 
 function OffersSwipe({ setShowMatchModal }) {
 
@@ -23,15 +24,12 @@ function OffersSwipe({ setShowMatchModal }) {
                 setOffersData(data)
             })
             .catch(err => console.log(err))
-
     }
 
 
     const swiped = (direction, offer_id) => {
-
         if (direction === "right") { manageEmployeeRightSwipe(offer_id, userData, setShowMatchModal) }
         if (direction === "up" || direction === "down") { console.log("offerDetails in modal") }
-
     }
 
     return (
@@ -75,7 +73,7 @@ function OffersSwipe({ setShowMatchModal }) {
                     </TinderCard>
                 ))
             ) : (
-                <h1>Cargando</h1>
+                <Spinner />
             )}
         </>
     );

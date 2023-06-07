@@ -9,9 +9,7 @@ function HomePage() {
 
     const sessionData = useSessionData()
 
-    let { _id } = sessionData
-
-    let session_id = _id
+    let { _id: session_id } = sessionData
 
     return (
         <div className='homePage__container'>
