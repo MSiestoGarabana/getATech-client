@@ -41,7 +41,7 @@ function EditUserForm() {
 
         userService
             .userUpdate(userData)
-            .then(({ data }) => navigate('/'))
+            .then(() => navigate('/profile'))
             .catch(err => console.log(err))
     }
 
