@@ -20,16 +20,16 @@ function EmployeesSwipe({ offer, setShowMatch }) {
     function loadEmployeesData() {
         let usersInDiscarded = offer.discarded
         let usersInPreselected = offer.preselecteds
-        console.log("OFFER", offer, "USERS IN DISCARDED", usersInDiscarded, "USERS IN PRESELECTED", usersInPreselected)
 
         userService
             .getAllUsers()
             .then(({ data }) => {
                 const filteredUsers = data.filter(user => {
-                    console.log(user)
-                    user.role === 'EMPLOYEE' &&
-                        !usersInDiscarded.includes(user) &&
-                        !usersInPreselected.includes(user)
+                    return (user.role === 'EMPLOYEE' &&
+                        !usersInDiscarded.includes(user._id.toString()) &&
+                        !usersInPreselected.includes(user._id.toString()))
+
+
                 }
                 );
                 setEmployeesData(filteredUsers);

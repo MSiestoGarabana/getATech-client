@@ -1,0 +1,6 @@
+#signUpPage__container {
+    padding: 10%;
+    height: 100%;
+    overflow: scroll;
+    scroll-behavior: smooth;
+}
