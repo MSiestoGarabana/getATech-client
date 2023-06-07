@@ -45,6 +45,7 @@ class OfferService{
     }
 
     newDiscarded(offer_id, userData){
+        console.log("user data in newDiscarded services",userData)
         const {_id: user_id} = userData
         return this.api.post(`${offer_id}/newDiscarded`, {user_id})
     }

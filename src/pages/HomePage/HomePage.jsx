@@ -6,8 +6,13 @@ import EmployerHomePage from '../EmployerHomePage/EmployerHome';
 import { useSessionData } from '../../utils/get-session-data';
 
 function HomePage() {
+
     const sessionData = useSessionData()
-    let { _id: session_id } = sessionData
+
+    let { _id } = sessionData
+
+
+    let session_id = _id
 
     return (
         <div className='homePage__container'>

@@ -2,57 +2,38 @@ import TinderCard from 'react-tinder-card'
 import { useState, useEffect, useRef } from "react"
 import userService from '../../../services/user.services'
 import offerService from '../../../services/offer.services'
+import { manageEmployerRightSwipe, manageNewDiscarded } from '../../../utils/swipe-utils'
 import './EmployeesSwipe.css'
 
 
 function EmployeesSwipe({ offer_id, session_id }) {
     console.log("Offer id", offer_id)
 
-    const employeesDataRef = useRef([])
     const [employeesData, setEmployeesData] = useState([])
 
     useEffect(() => {
-        if (employeesDataRef.current.length === 0) {
-            loadEmployeesData()
-        } else {
-            setEmployeesData(employeesDataRef.current)
-        }
+
+        loadEmployeesData()
+
     }, [offer_id])
 
     function loadEmployeesData() {
+
         userService
             .getAllUsers()
             .then(({ data }) => {
                 const filteredUsers = data.filter(user => user.role === 'EMPLOYEE');
-                employeesData.current = filteredUsers
                 setEmployeesData(filteredUsers);
             })
             .catch(err => console.log(err))
+
     }
 
-    const swiped = (direction, elm) => {
+    const swiped = (direction, employee) => {
 
-        let userData = elm
-        console.log("EMPLOYE DATAAAAA", userData)
-
-        if (direction === "right") {
-            offerService
-                .getOfferById(offer_id)
-                .then(({ data }) => {
-                    if (data.applicants.includes(userData._id)) {
-                        alert("MATCH")
-                    }
-                    return data
-                })
-                .then(
-                    offerService
-                        .newPreselected(offer_id, userData)
-                        .then(({ data }) => console.log("updatedOffer", data))
-                        .catch(err => console.log(err))
-                )
-
-
-        }
+        if (direction === "right") { manageEmployerRightSwipe(offer_id, employee) }
+        if (direction === "left") { manageNewDiscarded(offer_id, employee) }
+        if (direction === "up" || direction === "down") { console.log("modal") }
 
     }
 
@@ -63,20 +44,20 @@ function EmployeesSwipe({ offer_id, session_id }) {
     return (
         <div className='employeesSwipe__container'>
             {employeesData ? (
-                employeesData.map(elm => (
+                employeesData.map(employee => (
                     <TinderCard
                         className='swipe'
                         id='swipe'
-                        key={elm.username}
-                        onSwipe={dir => swiped(dir, elm)}
-                        onCardLeftScreen={() => outOfFrame(elm.username)}
+                        key={employee.username}
+                        onSwipe={dir => swiped(dir, employee)}
+                        onCardLeftScreen={() => outOfFrame(employee.username)}
                     >
                         <div
-                            style={{ backgroundImage: `url(${elm.image})` }}
+                            style={{ backgroundImage: `url(${employee.image})` }}
                             className='card'
                             id='card'
                         >
-                            <h3>{elm.username}</h3>
+                            <h3>{employee.username}</h3>
                         </div>
                     </TinderCard>
                 ))

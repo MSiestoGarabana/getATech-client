@@ -5,13 +5,13 @@ import userService from '../services/user.services';
 export function useSessionData() {
     const { user } = useContext(AuthContext)
     const [sessionData, setSessionData] = useState({})
+  
+        useEffect(() => {
+            userService
+                .getUserById(user?._id)
+                .then(({ data }) => { setSessionData(data) })
+                .catch(err => console.log(err))
+        }, [user])
 
-    useEffect(() => {
-        userService
-            .getUserById(user?._id)
-            .then(({ data }) => { setSessionData(data) })
-            .catch(err => console.log(err))
-    }, [user])
-
-    return sessionData && sessionData
+    return sessionData
 }
