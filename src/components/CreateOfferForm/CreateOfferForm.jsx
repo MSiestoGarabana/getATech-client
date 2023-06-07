@@ -90,7 +90,7 @@ const CreateOfferForm = () => {
 
             <Form.Group className="mb-3" controlId="description">
                 <Form.Label>description</Form.Label>
-                <Form.Control type="text" onChange={handleInputChange} name="description" />
+                <Form.Control style={{ height: "200px" }} as="textarea" onChange={handleInputChange} name="description" />
             </Form.Group>
 
             {errors.length > 0 && <FormError>{errors.map(elm => <p>{elm}</p>)}</FormError>}

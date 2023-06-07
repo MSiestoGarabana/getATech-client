@@ -80,7 +80,7 @@ function EditUserForm() {
 
             <Form.Group className="mb-3" controlId="description">
                 <Form.Label>New offer description</Form.Label>
-                <Form.Control type="text" value={description} onChange={handleInputChange} name="description" />
+                <Form.Control style={{ height: "150px" }} as="texarea" value={description} onChange={handleInputChange} name="description" />
             </Form.Group>
 
 
