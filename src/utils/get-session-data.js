@@ -7,8 +7,8 @@ export function useSessionData() {
     const [sessionData, setSessionData] = useState({})
   
         useEffect(() => {
-            userService
-                .getUserById(user?._id)
+            user && userService
+                .getUserById(user._id)
                 .then(({ data }) => { setSessionData(data) })
                 .catch(err => console.log(err))
         }, [user])

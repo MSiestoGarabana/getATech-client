@@ -51,7 +51,6 @@ const CreateOfferForm = () => {
         e.preventDefault()
 
         let offerData = newOfferData
-        console.log(offerData, "------------------------")
         offerService
             .createOffer(newOfferData)
             .then(({ data }) => navigate('/'))

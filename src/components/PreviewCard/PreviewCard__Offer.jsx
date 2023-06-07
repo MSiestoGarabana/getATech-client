@@ -1,17 +1,26 @@
-import './PreviewCard.css'
 import MyButton from '../MyButton/MyButton'
+import { useNavigate } from 'react-router-dom'
 
-function PreviewCard__Offer({ offerData }) {
+import './PreviewCard.css'
+
+function PreviewCard__Offer({ offer, setSelectedOffer }) {
+
+
+    let navigate = useNavigate()
+
     return (
-        <div className="previewCard__container">
-            <div className='previewCard'>
-                <img src={offerData.image} className='previewCard__image'></img>
-                <div className='previewCard__container--info'>
-                    <h1>{offerData.position}</h1>
+        <>
+            <button onClick={() => setSelectedOffer(offer)} className='previewCard'>
+                <img src={offer.image} className='previewCard__image'></img>
+                <div className='previewCard__container--text'>
+                    <p>{offer.position}</p>
                 </div>
-            </div>
+            </button>
+            <button onClick={() => navigate(`/offer/editoffer/${offer._id}`)} className="previewCard__button--editOffer">
+                edit
+            </button>
+        </>
 
-        </div>
     )
 }
 export default PreviewCard__Offer

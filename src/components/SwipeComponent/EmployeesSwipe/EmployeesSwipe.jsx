@@ -6,8 +6,7 @@ import { manageEmployerRightSwipe, manageNewDiscarded } from '../../../utils/swi
 import './EmployeesSwipe.css'
 
 
-function EmployeesSwipe({ offer_id, session_id }) {
-    console.log("Offer id", offer_id)
+function EmployeesSwipe({ offer_id, session_id, setShowMatch }) {
 
     const [employeesData, setEmployeesData] = useState([])
 
@@ -31,22 +30,18 @@ function EmployeesSwipe({ offer_id, session_id }) {
 
     const swiped = (direction, employee) => {
 
-        if (direction === "right") { manageEmployerRightSwipe(offer_id, employee) }
+        if (direction === "right") { manageEmployerRightSwipe(offer_id, employee, setShowMatch) }
         if (direction === "left") { manageNewDiscarded(offer_id, employee) }
-        if (direction === "up" || direction === "down") { console.log("modal") }
+        if (direction === "up" || direction === "down") { console.log("detalles de la oferta") }
 
-    }
-
-    const outOfFrame = (name) => {
-        console.log(name + ' left the screen!')
     }
 
     return (
-        <div className='employeesSwipe__container'>
+        <>
             {employeesData ? (
                 employeesData.map(employee => (
                     <TinderCard
-                        className='swipe'
+                        className='employeesSwipe'
                         id='swipe'
                         key={employee.username}
                         onSwipe={dir => swiped(dir, employee)}
@@ -54,8 +49,7 @@ function EmployeesSwipe({ offer_id, session_id }) {
                     >
                         <div
                             style={{ backgroundImage: `url(${employee.image})` }}
-                            className='card'
-                            id='card'
+                            className='employeeCard'
                         >
                             <h3>{employee.username}</h3>
                         </div>
@@ -64,7 +58,7 @@ function EmployeesSwipe({ offer_id, session_id }) {
             ) : (
                 <h1>Cargando</h1>
             )}
-        </div>
+        </>
     );
 }
 export default EmployeesSwipe

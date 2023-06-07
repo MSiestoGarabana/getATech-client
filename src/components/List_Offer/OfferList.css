@@ -1,7 +1,7 @@
 .offerList__container {
     display: flex;
     gap: 5%;
-    height: 30%;
+    height: 75%;
     width: 100%;
     overflow-x: auto;
     white-space: nowrap;
@@ -10,7 +10,12 @@
     scroll-behavior: smooth;
 }
 
-.offerList__button {
+.offerList__container--offer {
+    display: flex;
+    flex-direction: column;
+}
+
+.offerList__button--card {
     background-color: transparent;
     border: none;
 }

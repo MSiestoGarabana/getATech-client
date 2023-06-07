@@ -1,7 +1,7 @@
-import './EditOfferPage.css'
-
 import { Container, Row, Col } from 'react-bootstrap'
 import EditOfferForm from './../../components/EditOfferForm/EditOfferForm'
+
+import './EditOfferPage.css'
 
 function EditOfferPage() {
 
@@ -15,7 +15,7 @@ function EditOfferPage() {
                     <EditOfferForm />
                 </Col>
             </Row>
-        </Container>
+        </Container >
     )
 }
 

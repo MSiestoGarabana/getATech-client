@@ -1,0 +1,17 @@
+.employeesSwipe__container {
+    height: 30%;
+}
+
+.employerHome__container--upSection {
+    height: 50%;
+}
+
+.employerHome__container--createNewOffer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.employerHome__text--noOfferSelected {
+    margin: 17%;
+}

@@ -7,7 +7,6 @@ import userService from '../../services/user.services'
 function UserListPage() {
 
     const [users, setUsers] = useState()
-    console.log(users)
     useEffect(() => {
         loadUsers()
     }, [])

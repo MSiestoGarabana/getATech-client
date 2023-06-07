@@ -1,17 +1,33 @@
-.previewCard__container {}
-
 .previewCard {
     height: 100%;
     width: 150px;
-    border-radius: 10px;
     border: 1px solid black;
+    border-radius: 10px;
     box-shadow: 1px 1px 6px black;
     padding: 1%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .previewCard__image {
     width: 100%;
-    height: 50%;
+    height: 75%;
+    border-radius: 10px;
 }
 
-.previewCard__container--info {}
+.previewCard__container--text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.previewCard__button--editOffer {
+    position: relative;
+    width: fit-content;
+    bottom: 40px;
+    left: 60%;
+    background-color: transparent;
+    border: none;
+}

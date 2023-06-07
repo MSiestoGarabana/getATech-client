@@ -5,7 +5,7 @@ import { useSessionData } from '../../../utils/get-session-data'
 import { manageEmployeeRightSwipe } from '../../../utils/swipe-utils'
 import './OffersSwipe.css'
 
-function OffersSwipe({ setLastDirection }) {
+function OffersSwipe({ setShowMatchModal }) {
 
     const [offersData, setOffersData] = useState([])
 
@@ -19,7 +19,9 @@ function OffersSwipe({ setLastDirection }) {
 
         offerService
             .getAllOffers()
-            .then(({ data }) => { setOffersData(data) })
+            .then(({ data }) => {
+                setOffersData(data)
+            })
             .catch(err => console.log(err))
 
     }
@@ -27,31 +29,24 @@ function OffersSwipe({ setLastDirection }) {
 
     const swiped = (direction, offer_id) => {
 
-        if (direction === "right") { manageEmployeeRightSwipe(offer_id, userData) }
-        if (direction === "up" || direction === "down") { console.log("modal") }
+        if (direction === "right") { manageEmployeeRightSwipe(offer_id, userData, setShowMatchModal) }
+        if (direction === "up" || direction === "down") { console.log("offerDetails in modal") }
 
-        setLastDirection(direction)
-    }
-
-    const outOfFrame = (name) => {
-        console.log(name + ' left the screen!')
     }
 
     return (
-        <div>
+        <>
             {offersData ? (
                 offersData.map(({ _id: offer_id, image, position, location, salary, logo, remoteVolume }) => (
                     <TinderCard
-                        className='swipe'
-                        id='swipe'
+                        className='offersSwipe'
                         key={position}
                         onSwipe={direction => swiped(direction, offer_id)}
-                        onCardLeftScreen={() => outOfFrame(position)}
                     >
 
-                        <div className='card' id='offerCard'>
+                        <div className='offerCard' id='offerCard'>
 
-                            <img src={image} />
+                            <img className='offerCard__image' src={image} />
 
                             <div className='offerCard__container--text'>
 
@@ -82,7 +77,7 @@ function OffersSwipe({ setLastDirection }) {
             ) : (
                 <h1>Cargando</h1>
             )}
-        </div>
+        </>
     );
 }
 export default OffersSwipe

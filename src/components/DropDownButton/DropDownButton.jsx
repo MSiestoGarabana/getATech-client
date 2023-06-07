@@ -11,7 +11,6 @@ function DropDownButton({ title, id, elements, handleDropDownSelect, name }) { /
             id={`dropdown-basic-${id}`}
             name={name}
             onSelect={(event) => {
-                console.log(event)
                 handleDropDownSelect(event)
             }}
         >

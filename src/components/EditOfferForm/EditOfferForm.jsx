@@ -3,6 +3,8 @@ import { Form, Button, FormGroup } from "react-bootstrap"
 import { useNavigate, useParams } from "react-router-dom"
 import offerService from "../../services/offer.services"
 
+import './EditOfferForm.css'
+
 function EditUserForm() {
 
     const [editData, setEditData] = useState({
@@ -52,7 +54,7 @@ function EditUserForm() {
 
     return (
 
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} id={"form"}>
 
             <Form.Group className="mb-3" controlId="image">
                 <Form.Label>Edit image</Form.Label>
