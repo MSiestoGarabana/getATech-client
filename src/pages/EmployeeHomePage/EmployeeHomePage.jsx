@@ -4,7 +4,7 @@ import OffersSwipe from '../../components/SwipeComponent/OffersSwipe/OffersSwipe
 import './EmployeeHomePage.css'
 
 
-function EmployeeHomePage() {
+function EmployeeHomePage({ session_id }) {
 
     const [showMatchModal, setShowMatchModal] = useState(false)
 
@@ -15,7 +15,7 @@ function EmployeeHomePage() {
                     <Modal.Title>MATCH!</Modal.Title>
                 </Modal.Header>
             </Modal>
-            <OffersSwipe setShowMatchModal={setShowMatchModal} />
+            <OffersSwipe session_id={session_id} setShowMatchModal={setShowMatchModal} />
         </div>
     );
 }

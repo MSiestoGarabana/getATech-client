@@ -36,14 +36,14 @@ function manageNewApplicant(offer_id, employee){
         .catch(err => console.log(err))
 }
 
-function manageEmployerRightSwipe(offer_id, employee) {
+function manageEmployerRightSwipe(offer_id, employee, setShowMatch) {
 
     let { _id: employee_id } = employee
 
     offerService
         .getOfferById(offer_id)
         .then(({ data: offer }) => {
-            if (offer.applicants.includes(employee_id)) { manageMatch("employer", offer_id, employee) }
+            if (offer.applicants.includes(employee_id)) {setShowMatch(true), manageMatch("employer", offer_id, employee) }
             if (!offer.applicants.includes(employee_id)) { manageNewPreselected(offer_id, employee) }
         })
         .catch(err => console.log(err))

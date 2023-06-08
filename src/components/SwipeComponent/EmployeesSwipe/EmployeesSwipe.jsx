@@ -6,30 +6,29 @@ import { manageEmployerRightSwipe, manageNewDiscarded } from '../../../utils/swi
 import './EmployeesSwipe.css'
 
 
-function EmployeesSwipe({ offer, setShowMatch }) {
+function EmployeesSwipe({ setShowMatch, offer }) {
+
     let { _id: offer_id } = offer
+    console.log("SELECTEDOFFERINSWIP", offer.position)
+    let { discarded: usersInDiscarded } = offer
+    let { preselecteds: usersInPreselected } = offer
+
     const [employeesData, setEmployeesData] = useState([])
 
 
     useEffect(() => {
-
         loadEmployeesData()
-
-    }, [offer_id])
+    }, [])
 
     function loadEmployeesData() {
-        let usersInDiscarded = offer.discarded
-        let usersInPreselected = offer.preselecteds
 
         userService
             .getAllUsers()
             .then(({ data }) => {
-                const filteredUsers = data.filter(user => {
-                    return (user.role === 'EMPLOYEE' &&
-                        !usersInDiscarded.includes(user._id.toString()) &&
-                        !usersInPreselected.includes(user._id.toString()))
-
-
+                const filteredUsers = data.filter(({ role, _id }) => {
+                    return (role === 'EMPLOYEE' &&
+                        !usersInDiscarded.includes(_id) &&
+                        !usersInPreselected.includes(_id))
                 }
                 );
                 setEmployeesData(filteredUsers);

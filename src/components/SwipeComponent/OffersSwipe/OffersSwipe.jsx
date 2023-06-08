@@ -6,7 +6,7 @@ import { manageEmployeeRightSwipe } from '../../../utils/swipe-utils'
 import './OffersSwipe.css'
 import { Spinner } from 'react-bootstrap'
 
-function OffersSwipe({ setShowMatchModal }) {
+function OffersSwipe({ session_id, setShowMatchModal }) {
 
     const [offersData, setOffersData] = useState([])
 
@@ -17,11 +17,16 @@ function OffersSwipe({ setShowMatchModal }) {
     }, [])
 
     function loadOffersData() {
-
         offerService
             .getAllOffers()
             .then(({ data }) => {
-                setOffersData(data)
+                let filteredOffers = data.filter((offer) => {
+                    console.log(offer.applicants.includes(session_id))
+                    return (
+                        !offer.applicants.includes(session_id)
+                    )
+                })
+                setOffersData(filteredOffers)
             })
             .catch(err => console.log(err))
     }
@@ -35,6 +40,7 @@ function OffersSwipe({ setShowMatchModal }) {
     return (
         <>
             {offersData ? (
+
                 offersData.map(({ _id: offer_id, image, position, location, salary, logo, remoteVolume }) => (
                     <TinderCard
                         className='offersSwipe'

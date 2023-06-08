@@ -13,7 +13,7 @@ function HomePage() {
 
     return (
         <div className='homePage__container'>
-            {sessionData?.role === 'EMPLOYEE' && (<EmployeeHomePage />)}
+            {sessionData?.role === 'EMPLOYEE' && (<EmployeeHomePage session_id={session_id} />)}
             {sessionData?.role === "EMPLOYER" && (<EmployerHomePage session_id={session_id} />)}
             {!sessionData.role && (<WelcomePage />)}
         </div>
