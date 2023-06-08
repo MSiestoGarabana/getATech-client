@@ -1,7 +1,7 @@
 import TinderCard from 'react-tinder-card'
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
+import { useNavigate } from 'react-router-dom'
 import userService from '../../../services/user.services'
-import offerService from '../../../services/offer.services'
 import { manageEmployerRightSwipe, manageNewDiscarded } from '../../../utils/swipe-utils'
 import './EmployeesSwipe.css'
 
@@ -9,7 +9,6 @@ import './EmployeesSwipe.css'
 function EmployeesSwipe({ selectedOffer, setShowMatch }) {
 
     let { _id: offer_id } = selectedOffer
-    console.log("SELECTEDOFFERINSWIPE", selectedOffer.position)
     let { discarded: usersInDiscarded } = selectedOffer
     let { preselecteds: usersInPreselected } = selectedOffer
 
@@ -39,17 +38,21 @@ function EmployeesSwipe({ selectedOffer, setShowMatch }) {
 
     }
 
+    const navigate = useNavigate()
+
     const swiped = (direction, employee) => {
 
-        console.log(employee)
-        if (direction === "right") { manageEmployerRightSwipe(offer_id, employee, setShowMatch) }
-        if (direction === "left") { manageNewDiscarded(offer_id, employee) }
-        if (direction === "up" || direction === "down") { console.log("detalles de la oferta") }
+        let { _id } = employee
+
+        if (direction === "right") { manageEmployerRightSwipe(offer_id, employee, setShowMatch, loadEmployeesData()) }
+        if (direction === "left") { manageNewDiscarded(offer_id, employee, loadEmployeesData()) }
+        if (direction === "up" || direction === "down") { navigate(`/user/${_id}`) }
 
     }
 
     return (
-        <>  <h2>{selectedOffer.position}</h2>
+        <>
+            <p className='swipe__text--title'>{selectedOffer.position}</p>
             {employeesData ?
                 (
                     employeesData.map((employee, i) => (

@@ -1,8 +1,21 @@
+import { Button } from "react-bootstrap"
+import { Link } from "react-router-dom"
+
+import './WelcomePage.css'
+
 function WelcomePage() {
     return (
         <div>
-            <h1>Welcome</h1>
-            <h1>WELCOMEEE</h1>
+            <Button id="welcomePage__button">
+                <Link className="welcomePage__link" to='/login'>
+                    <p>Login</p>
+                </Link>
+            </Button>
+            <Button id="welcomePage__button">
+                <Link className="welcomePage__link--signup" to='/signup'>
+                    <p>SignUp</p>
+                </Link>
+            </Button>
         </div>
     )
 }

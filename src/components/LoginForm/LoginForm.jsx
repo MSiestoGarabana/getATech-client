@@ -28,7 +28,7 @@ function LoginForm() {
             .then(({ data }) => {
                 storeToken(data.authToken)
                 authenticateUser()
-                navigate('/')
+                navigate('/homepage')
             })
             .catch(err => console.log(err))
     }

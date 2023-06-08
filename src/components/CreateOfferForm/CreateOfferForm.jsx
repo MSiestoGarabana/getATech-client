@@ -52,7 +52,7 @@ const CreateOfferForm = () => {
 
         offerService
             .createOffer(newOfferData)
-            .then(() => navigate('/'))
+            .then(() => navigate('/homepage'))
             .catch(err => {
                 setErrors(err.response.data.errorMessages)
             })

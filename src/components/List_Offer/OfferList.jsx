@@ -5,7 +5,7 @@ import PreviewCard__Offer from "../PreviewCard/PreviewCard__Offer"
 
 import './OfferList.css'
 
-function OfferList({ setSelectedOffer, selectedOffer }) {
+function OfferList({ setSelectedOffer, selectedOffer, getOffersData, loadMatchesData }) {
 
     const { _id: session_id } = useSessionData()
     const [offersData, setOffersData] = useState([])
@@ -36,6 +36,7 @@ function OfferList({ setSelectedOffer, selectedOffer }) {
                             setSelectedOffer={setSelectedOffer}
                             selectedOffer={selectedOffer}
                             getOffersData={getOffersData}
+                            loadMatchesData={loadMatchesData}
                         />
                     </div>
                 )

@@ -45,7 +45,7 @@ function EditUserForm() {
 
         offerService
             .updateOffer(editData)
-            .then(({ data }) => navigate('/'))
+            .then(({ data }) => navigate('/homepage'))
             .catch(err => console.log(err))
     }
 
