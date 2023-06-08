@@ -70,7 +70,6 @@ function EmployerHomePage({ session_id }) {
                     </div>
                     <div className='employerHome__container--matches'>
                         {matchesData.map((user) => {
-                            console.log("hey")
                             return (
                                 <h1 key={user._id}>{user.username}</h1>
                             )

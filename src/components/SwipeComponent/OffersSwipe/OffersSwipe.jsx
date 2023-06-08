@@ -21,7 +21,6 @@ function OffersSwipe({ session_id, setShowMatchModal }) {
             .getAllOffers()
             .then(({ data }) => {
                 let filteredOffers = data.filter((offer) => {
-                    console.log(offer.applicants.includes(session_id))
                     return (
                         !offer.applicants.includes(session_id)
                     )

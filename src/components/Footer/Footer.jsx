@@ -26,9 +26,12 @@ function Footer({ sessionData }) {
                     <FooterButton icon={profileIcon} link={`/profile`} className="footerButton" />
                 </>
             }
-            <>
-                <FooterButton icon={homeIcon} link="/" className="footerButton" />
-            </>
+            {!sessionData.role &&
+                <>
+                    <FooterButton icon={homeIcon} link="/" className="footerButton" />
+                </>
+            }
+
 
 
         </footer>

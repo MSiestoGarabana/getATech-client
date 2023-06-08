@@ -14,7 +14,6 @@ function App() {
   const [sessionData, setSessionData] = useState({})
 
   useEffect(() => {
-    console.log("user from App", user)
     user && userService
       .getUserById(user._id)
       .then(({ data }) => { setSessionData(data) })

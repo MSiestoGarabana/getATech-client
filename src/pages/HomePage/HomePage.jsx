@@ -5,9 +5,8 @@ import WelcomePage from '../WelcomePage/WelcomePage'
 import { useSessionData } from '../../utils/get-session-data';
 
 import './HomePage.css'
-function HomePage({ hey }) {
+function HomePage() {
 
-    console.log(hey)
 
     const sessionData = useSessionData()
 
