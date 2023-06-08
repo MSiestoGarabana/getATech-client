@@ -20,7 +20,6 @@ function Navigation() {
     function handleLogOutClick() {
         navigate('/')
         logout()
-        window.location.reload(false)
     }
 
     return (

@@ -13,7 +13,7 @@ import UserListPage from '../pages/UserListPage/UserListPage'
 const AppRoutes = () => {
     return (
         <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<HomePage hey={"hey"} />} />
             <Route path='/offer/:offer_id' element={<OfferDetails />} />
             <Route path='/offer/editoffer/:offer_id' element={<EditOfferPage />} />
             <Route path='/signup' element={<SignUpPage />} />
@@ -21,17 +21,10 @@ const AppRoutes = () => {
             <Route path='/user/list' element={<UserListPage />} />
             {/* TODO: REVISAR RUTAS */}
             <Route path='/user/edituser/:userId' element={<EditUserPage />} />
-
-
-            {/* VER EJEMPLO DISCORED */}
-            <Route path='/newOffer' element={<PrivateRoute />}>
-                <Route path='' element={<NewOfferPage />} />
+            <Route element={<PrivateRoute />}>
+                <Route path='/newOffer' element={<NewOfferPage />} />
+                <Route path='/profile' element={<ProfilePage />} />
             </Route>
-
-            <Route path='/profile' element={<PrivateRoute />}>
-                <Route path='' element={<ProfilePage />} />
-            </Route>
-
             <Route path='*' element={<h1>Error</h1>} />
         </Routes>
     )

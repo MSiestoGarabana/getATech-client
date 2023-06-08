@@ -26,8 +26,28 @@
 .previewCard__button--editOffer {
     position: relative;
     width: fit-content;
-    bottom: 40px;
-    left: 60%;
+    bottom: 183px;
+    left: 70%;
     background-color: transparent;
     border: none;
+}
+
+.previewCard__img--edit {
+    height: 25px;
+    width: 25px;
+}
+
+
+.previewCard__button--deleteOffer {
+    position: relative;
+    width: fit-content;
+    bottom: 210px;
+    left: 2%;
+    background-color: transparent;
+    border: none;
+}
+
+.previewCard__img--delete {
+    height: 25px;
+    width: 25px;
 }

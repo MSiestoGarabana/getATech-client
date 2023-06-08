@@ -37,7 +37,7 @@ function manageNewApplicant(offer_id, employee){
 }
 
 function manageEmployerRightSwipe(offer_id, employee, setShowMatch) {
-
+    console.log(offer_id)
     let { _id: employee_id } = employee
 
     offerService

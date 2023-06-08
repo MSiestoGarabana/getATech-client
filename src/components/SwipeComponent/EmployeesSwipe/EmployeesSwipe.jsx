@@ -6,12 +6,12 @@ import { manageEmployerRightSwipe, manageNewDiscarded } from '../../../utils/swi
 import './EmployeesSwipe.css'
 
 
-function EmployeesSwipe({ setShowMatch, offer }) {
+function EmployeesSwipe({ selectedOffer, setShowMatch }) {
 
-    let { _id: offer_id } = offer
-    console.log("SELECTEDOFFERINSWIP", offer.position)
-    let { discarded: usersInDiscarded } = offer
-    let { preselecteds: usersInPreselected } = offer
+    let { _id: offer_id } = selectedOffer
+    console.log("SELECTEDOFFERINSWIPE", selectedOffer.position)
+    let { discarded: usersInDiscarded } = selectedOffer
+    let { preselecteds: usersInPreselected } = selectedOffer
 
     const [employeesData, setEmployeesData] = useState([])
 
@@ -24,12 +24,14 @@ function EmployeesSwipe({ setShowMatch, offer }) {
 
         userService
             .getAllUsers()
-            .then(({ data }) => {
-                const filteredUsers = data.filter(({ role, _id }) => {
-                    return (role === 'EMPLOYEE' &&
-                        !usersInDiscarded.includes(_id) &&
-                        !usersInPreselected.includes(_id))
+            .then(({ data: usersData }) => {
+
+                const filteredUsers = usersData.filter(({ role: userRole, _id: user_id }) => {
+                    return (userRole === 'EMPLOYEE' &&
+                        !usersInDiscarded.includes(user_id) &&
+                        !usersInPreselected.includes(user_id))
                 }
+
                 );
                 setEmployeesData(filteredUsers);
             })
@@ -39,6 +41,7 @@ function EmployeesSwipe({ setShowMatch, offer }) {
 
     const swiped = (direction, employee) => {
 
+        console.log(employee)
         if (direction === "right") { manageEmployerRightSwipe(offer_id, employee, setShowMatch) }
         if (direction === "left") { manageNewDiscarded(offer_id, employee) }
         if (direction === "up" || direction === "down") { console.log("detalles de la oferta") }
@@ -46,7 +49,7 @@ function EmployeesSwipe({ setShowMatch, offer }) {
     }
 
     return (
-        <>
+        <>  <h2>{selectedOffer.position}</h2>
             {employeesData ?
                 (
                     employeesData.map((employee, i) => (
