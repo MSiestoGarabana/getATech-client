@@ -46,7 +46,6 @@ const SignupForm = () => {
 
         e.preventDefault()
 
-        let userData = { email, password }
         authService
             .signup(signupData)
             .then(({ data }) => navigate('/login'))

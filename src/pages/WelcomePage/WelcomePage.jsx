@@ -1,11 +1,14 @@
 import { Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
+import welcomeImage from '../WelcomePage/Welcome image/welcomeImg.png'
+
 import './WelcomePage.css'
 
 function WelcomePage() {
     return (
-        <div>
+        <div className="welcomePage__container--body">
+            <img src={welcomeImage} className="welcomePage__img" />
             <Button id="welcomePage__button">
                 <Link className="welcomePage__link" to='/login'>
                     <p>Login</p>

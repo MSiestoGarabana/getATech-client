@@ -1,3 +1,11 @@
 #welcomePage__button {
     background-color: transparent;
 }
+
+.welcomePage__container--body {
+    height: 100%;
+}
+
+.welcomePage__img {
+    width: 100%;
+}
