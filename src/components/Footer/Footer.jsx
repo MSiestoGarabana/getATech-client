@@ -7,7 +7,8 @@ import settingsIcon from './FooterIcons/settings.png'
 import chatIcon from './FooterIcons/comment.png'
 
 function Footer({ sessionData }) {
-    console.log("sessionData from footer", sessionData)
+
+    let { _id } = sessionData
 
     return (
         <footer>
@@ -16,14 +17,19 @@ function Footer({ sessionData }) {
                     <FooterButton icon={homeIcon} link="/homepage" className="footerButton" />
                     <FooterButton icon={settingsIcon} link={``} className="footerButton" />
                     <FooterButton icon={chatIcon} link={``} className="footerButton" />
-                    <FooterButton icon={profileIcon} link={`/profile`} className="footerButton" />
+                    <FooterButton icon={profileIcon} link={`/user/${_id}`} className="footerButton" />
                 </>
             }
             {sessionData?.role === 'EMPLOYER' &&
                 <>
                     <FooterButton icon={homeIcon} link="/homepage" className="footerButton" />
                     <FooterButton icon={settingsIcon} link={``} className="footerButton" />
-                    <FooterButton icon={profileIcon} link={`/profile`} className="footerButton" />
+                    <FooterButton icon={profileIcon} link={`/user/${_id}`} className="footerButton" />
+                </>
+            }
+            {sessionData?.role === 'ADMIN' &&
+                <>
+                    <FooterButton icon={homeIcon} link="/homepage" className="footerButton" />
                 </>
             }
             {!sessionData.role &&

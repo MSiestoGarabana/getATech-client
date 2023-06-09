@@ -11,7 +11,6 @@ function EditUserForm() {
         role: '',
     })
 
-    const { username, email } = editData
 
     const navigate = useNavigate()
 
@@ -33,17 +32,18 @@ function EditUserForm() {
         setEditData({ ...editData, [name]: value })
     }
 
-    // TODO: REVISAR
-    let userData = editData
+    let { _id } = editData
 
     const handleSubmit = e => {
         e.preventDefault()
 
         userService
-            .userUpdate(userData)
-            .then(() => navigate('/profile'))
+            .userUpdate(editData)
+            .then(() => navigate(`/user/${_id}`))
             .catch(err => console.log(err))
     }
+
+    const { username, email } = editData
 
     return (
 

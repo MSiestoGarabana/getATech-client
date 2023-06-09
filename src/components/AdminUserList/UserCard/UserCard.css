@@ -1,0 +1,39 @@
+.userCard__container--body {
+    margin: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 30px;
+}
+
+.userCard__img {
+    height: 150px;
+    border-radius: 30px;
+}
+
+.userCard__container--downSection {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.userCard__h3 {
+    margin: 5%;
+}
+
+.userCard__button--delete {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    bottom: 135px;
+    left: 13px;
+    background-color: transparent;
+    border: none;
+}
+
+.userCard__icon--delete {
+    height: 20px;
+    width: 20px;
+
+}

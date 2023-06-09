@@ -1,0 +1,12 @@
+.AdminHomePage__container--body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.AdminHomePage__container--list {
+    display: flex;
+    flex-direction: row;
+    height: 30%;
+}

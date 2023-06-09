@@ -39,7 +39,7 @@ function Navigation({ user, setSessionData }) {
                                         </Nav.Link>
                                     </Dropdown.Item>
                                     <Dropdown.Item as={Button}>
-                                        <Link to="/profile">My profile</Link>
+                                        <Link to={`/user/${user._id}`}>My profile</Link>
                                     </Dropdown.Item>
                                 </>
                             </Dropdown.Menu>

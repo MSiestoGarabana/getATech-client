@@ -1,0 +1,9 @@
+.adminOfferList__container--body {
+    width: 100%;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: row;
+    gap: 7%;
+    height: fit-content;
+}

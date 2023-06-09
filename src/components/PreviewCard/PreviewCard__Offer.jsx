@@ -7,7 +7,7 @@ import userService from '../../services/user.services'
 
 import './PreviewCard.css'
 
-function PreviewCard__Offer({ offer, selectedOffer, setSelectedOffer, handleDeleteOffer, getOffersData, loadMatchesData }) {
+function PreviewCard__Offer({ offer, selectedOffer, setSelectedOffer, handleDeleteOffer, getOffersData }) {
 
     let navigate = useNavigate()
 

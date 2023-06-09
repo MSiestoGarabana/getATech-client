@@ -1,7 +1,11 @@
-.userDetail__body {
-    height: 50%;
-    border: 1px solid black;
+#userDetail__body {
+    height: 100%;
     border-radius: 20px;
+
+}
+
+#userDetail__container--col {
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -9,7 +13,31 @@
 }
 
 .userDetail__img {
-    width: 30%;
-    height: 15%;
+    width: 50%;
     border-radius: 650px;
+}
+
+.userDetail__container--update {
+    height: 15%;
+}
+
+
+
+
+#userDetail__button--homepageButton {
+    margin-left: 60%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background-color: transparent;
+    border: none;
+}
+
+#userDetail__img--closeButton {
+    margin-right: 5%;
+    justify-self: flex-end;
+    width: 40px;
+    background-color: transparent;
+    bottom: 100%;
 }

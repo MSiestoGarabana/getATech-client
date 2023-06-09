@@ -17,3 +17,13 @@
     color: aliceblue;
     text-decoration: none;
 }
+
+.userDetail__button--update {
+    padding-top: 20%;
+    background-color: transparent;
+}
+
+.userDetail__button--update--link {
+    margin-top: 10%;
+    text-decoration: none;
+}

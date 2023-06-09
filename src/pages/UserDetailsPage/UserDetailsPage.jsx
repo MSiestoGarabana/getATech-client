@@ -1,7 +1,13 @@
-import { useParams } from "react-router-dom"
-import UserDetailComponent from "../../components/UserDetailComponent/UserDetailComponent"
-import { useEffect, useState } from "react"
-import userService from "../../services/user.services"
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
+
+import { Container } from 'react-bootstrap';
+import userService from '../../services/user.services';
+import MyButton from "../../components/MyButton/MyButton"
+import UserDetailComponent from "../../components/UserDetailComponent/UserDetailComponent";
+
+import './UserDetailsPage.css'
 
 function UserDetailsPage() {
 
@@ -12,14 +18,14 @@ function UserDetailsPage() {
     useEffect(() => {
         userService
             .getUserById(userId)
-            .then(({ data }) => {
-                setUserData(data)
-            })
+            .then(({ data }) => setUserData(data))
             .catch(err => console.log(err))
     }, [])
 
     return (
-        <UserDetailComponent userData={userData} />
+        <Container className="profilePage__container">
+            <UserDetailComponent userData={userData} />
+        </Container>
     )
 }
 

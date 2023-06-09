@@ -42,11 +42,11 @@ function EmployeesSwipe({ selectedOffer, setShowMatch }) {
 
     const swiped = (direction, employee) => {
 
-        let { _id } = employee
+        let { _id: employee_id } = employee
 
         if (direction === "right") { manageEmployerRightSwipe(offer_id, employee, setShowMatch, loadEmployeesData()) }
         if (direction === "left") { manageNewDiscarded(offer_id, employee, loadEmployeesData()) }
-        if (direction === "up" || direction === "down") { navigate(`/user/${_id}`) }
+        if (direction === "up" || direction === "down") { navigate(`/user/${employee_id}`) }
 
     }
 

@@ -1,5 +1,6 @@
 import EmployeeHomePage from '../EmployeeHomePage/EmployeeHomePage'
 import EmployerHomePage from '../EmployerHomePage/EmployerHome';
+import AdminHomePage from '../AdminHomePage/AdminHomePage';
 import WelcomePage from '../WelcomePage/WelcomePage'
 
 import { useSessionData } from '../../utils/get-session-data';
@@ -15,7 +16,8 @@ function HomePage() {
     return (
         <div className='homePage__container'>
             {sessionData?.role === 'EMPLOYEE' && (<EmployeeHomePage session_id={session_id} />)}
-            {sessionData?.role === "EMPLOYER" && (<EmployerHomePage session_id={session_id} />)}
+            {sessionData?.role === 'EMPLOYER' && (<EmployerHomePage session_id={session_id} />)}
+            {sessionData?.role === 'ADMIN' && (<AdminHomePage session_id={session_id} />)}
             {!sessionData.role && (<WelcomePage />)}
         </div>
     )
