@@ -4,5 +4,6 @@
 }
 
 .modal__match {
-    width: 10%;
+    width: 20%;
+    margin-left: 20vw;
 }

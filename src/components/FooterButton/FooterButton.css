@@ -1,16 +1,5 @@
-.footerButton {
-    background-color: transparent;
-    border: 3px solid white;
+#footerButton {
+    border: 2px solid white;
     border-radius: 50px;
-    padding: 5%;
-}
-
-.footerButton:hover {
-    background-color: rgba(91, 147, 245, 0.436);
-    border-color: rgb(255, 255, 255);
-}
-
-.footerButton__link {
-    color: antiquewhite;
-    text-decoration: none;
+    margin-top: 10px;
 }

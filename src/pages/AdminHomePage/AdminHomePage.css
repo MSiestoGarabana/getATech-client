@@ -7,6 +7,6 @@
 
 .AdminHomePage__container--list {
     display: flex;
-    flex-direction: row;
-    height: 30%;
+    flex-direction: column;
+    height: 40%;
 }

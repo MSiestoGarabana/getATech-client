@@ -4,6 +4,8 @@ import authService from './../../services/auth.services'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.contexts'
 
+import './LoginForm.css'
+
 function LoginForm() {
 
     const [loginData, setLoginData] = useState({
@@ -40,20 +42,20 @@ function LoginForm() {
 
     return (
 
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} id="loginForm__container--body">
 
             <Form.Group className="mb-3" controlId="email">
-                <Form.Label>Email</Form.Label>
+                <Form.Label id="loginForm__text">Email</Form.Label>
                 <Form.Control type="email" value={email} onChange={handleInputChange} name="email" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="password">
-                <Form.Label>Contraseña</Form.Label>
+                <Form.Label id="loginForm__text">Contraseña</Form.Label>
                 <Form.Control type="password" value={password} onChange={handleInputChange} name="password" />
             </Form.Group>
 
             <div className="d-grid">
-                <Button variant="dark" type="submit">Acceder</Button>
+                <Button variant="primary" type="submit">Acceder</Button>
             </div>
 
         </Form>

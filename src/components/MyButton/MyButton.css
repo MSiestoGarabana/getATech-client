@@ -1,6 +1,6 @@
-.ProfilePage__newOfferButton {
-    background-color: black;
+#ProfilePage__newOfferButton {
     border: none;
+    margin-top: 7%;
 }
 
 .ProfilePage__newOfferButton--link {
@@ -8,7 +8,7 @@
     text-decoration: none;
 }
 
-.ProfilePage__updateProfileButton {
+#ProfilePage__updateProfileButton {
     background-color: black;
     border: none;
 }
@@ -18,7 +18,7 @@
     text-decoration: none;
 }
 
-.userDetail__button--update {
+#userDetail__button--update {
     padding-top: 20%;
     background-color: transparent;
 }

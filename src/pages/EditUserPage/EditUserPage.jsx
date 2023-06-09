@@ -1,4 +1,4 @@
-//import './EditUserPage.css'
+import './EditUserPage.css'
 
 import { Container, Row, Col } from 'react-bootstrap'
 import EditUserForm from './../../components/EditUserForm/EditUserForm'
@@ -7,7 +7,7 @@ function EditUserPage() {
 
     return (
 
-        <Container className='editUserPage'>
+        <Container id='editUserPage'>
 
             <Row>
 

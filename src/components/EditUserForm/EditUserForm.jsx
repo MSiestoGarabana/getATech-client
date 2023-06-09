@@ -3,6 +3,8 @@ import { Form, Button, FormGroup } from "react-bootstrap"
 import { useNavigate, useParams } from "react-router-dom"
 import userService from "../../services/user.services"
 
+import './EditUserForm.css'
+
 function EditUserForm() {
 
     const [editData, setEditData] = useState({
@@ -47,7 +49,7 @@ function EditUserForm() {
 
     return (
 
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} id="editUserForm__container">
 
             <Form.Group className="mb-3" controlId="username">
                 <Form.Label>Write new username</Form.Label>
@@ -71,7 +73,7 @@ function EditUserForm() {
             </FormGroup>
 
             <div className="d-grid">
-                <Button variant="dark" type="submit">Save Changes</Button>
+                <Button variant="primary" type="submit">Save Changes</Button>
             </div>
 
         </Form>

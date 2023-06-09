@@ -1,5 +1,6 @@
 #welcomePage__button {
     background-color: transparent;
+    border-width: 3px;
 }
 
 .welcomePage__container--body {
@@ -8,4 +9,25 @@
 
 .welcomePage__img {
     width: 100%;
+}
+
+.welcomePage__container--text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0 10%;
+}
+
+.welcomePage__container--buttons {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-decoration: none;
+}
+
+.welcomePage__link {
+    text-decoration: none;
+    font-weight: 300;
+    margin-top: 10px;
 }

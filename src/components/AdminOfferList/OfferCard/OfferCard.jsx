@@ -27,7 +27,7 @@ function OfferCard({ offerData, selectedOffer, setSelectedOffer, handleDeleteOff
                         </button>
                     </>
                 }
-                <h3 className='offerCard__h3'>{offerData.position}</h3>
+                <h5 className='offerCard__h3'>{offerData.position}</h5>
             </div>
         </div>
     )

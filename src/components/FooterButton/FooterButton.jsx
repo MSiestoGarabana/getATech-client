@@ -4,9 +4,9 @@ import './FooterButton.css'
 
 function FooterButton({ icon, link, className }) {
     return (
-        <Button className={className}>
+        <Button id={className}>
             <Link className={`${className}__link`} to={link}>
-                <img src={icon}></img>
+                <img className="footer__icon" src={icon}></img>
             </Link>
         </Button>
     )

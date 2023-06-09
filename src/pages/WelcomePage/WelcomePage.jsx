@@ -9,16 +9,24 @@ function WelcomePage() {
     return (
         <div className="welcomePage__container--body">
             <img src={welcomeImage} className="welcomePage__img" />
-            <Button id="welcomePage__button">
-                <Link className="welcomePage__link" to='/login'>
-                    <p>Login</p>
-                </Link>
-            </Button>
-            <Button id="welcomePage__button">
-                <Link className="welcomePage__link--signup" to='/signup'>
-                    <p>SignUp</p>
-                </Link>
-            </Button>
+
+            <div className="welcomePage__container--text">
+                <h3>Get a tech</h3>
+                <h3>Get a job</h3>
+            </div>
+
+            <div className="welcomePage__container--buttons">
+                <Button id="welcomePage__button">
+                    <Link className="welcomePage__link" to='/login'>
+                        <p>Login</p>
+                    </Link>
+                </Button>
+                <Button id="welcomePage__button">
+                    <Link className="welcomePage__link" to='/signup'>
+                        <p>SignUp</p>
+                    </Link>
+                </Button>
+            </div>
         </div>
     )
 }

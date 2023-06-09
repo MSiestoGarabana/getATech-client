@@ -26,6 +26,11 @@
     height: 100%;
 }
 
+#modal {
+    width: 20%;
+    margin-left: 20vw;
+}
+
 .employerHome__container--matches {
     width: 50%;
     height: 100%;

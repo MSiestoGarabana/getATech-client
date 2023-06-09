@@ -10,7 +10,7 @@ function EmployeeHomePage({ session_id }) {
 
     return (
         <div className='employeeHomePage__container'>
-            <Modal className='modal__match' show={showMatchModal} onHide={() => setShowMatchModal(false)}>
+            <Modal id='modal__match' show={showMatchModal} onHide={() => setShowMatchModal(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>MATCH!</Modal.Title>
                 </Modal.Header>

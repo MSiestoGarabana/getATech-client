@@ -5,9 +5,12 @@
     align-items: center;
     border: 1px solid black;
     border-radius: 30px;
+    height: 200px;
+    width: 200px;
 }
 
 .offerCard__img {
+    width: 80px;
     border-radius: 30px;
 }
 
@@ -25,7 +28,7 @@
     position: relative;
     height: 20px;
     width: 20px;
-    bottom: 210px;
+    bottom: 70px;
     left: 5%;
     background-color: transparent;
     border: none;
@@ -34,5 +37,4 @@
 .offerCard__icon--delete {
     height: 20px;
     width: 20px;
-
 }

@@ -21,9 +21,9 @@ function Navigation({ user, setSessionData }) {
     }
 
     return (
-        <Navbar id="navBar" bg="dark" variant="dark">
+        <Navbar id="navBar">
             <Container id="navBar__container">
-                <Navbar.Brand href="#home">G.A.T</Navbar.Brand>
+                <h3 id="navBar__icon" href="#home">G.A.T</h3>
                 <Nav>
 
                     {user &&
@@ -34,12 +34,12 @@ function Navigation({ user, setSessionData }) {
                             <Dropdown.Menu>
                                 <>
                                     <Dropdown.Item as={Button}>
-                                        <Nav.Link style={{ color: "black" }} onClick={handleLogOutClick}>
+                                        <Nav.Link id="navBar__link--logout" style={{ color: "red", fontWeight: "300" }} onClick={handleLogOutClick}>
                                             Logout
                                         </Nav.Link>
                                     </Dropdown.Item>
                                     <Dropdown.Item as={Button}>
-                                        <Link to={`/user/${user._id}`}>My profile</Link>
+                                        <Link to={`/user/${user._id}`} style={{ color: "blue", fontWeight: "300", textDecoration: "none" }}>My profile</Link>
                                     </Dropdown.Item>
                                 </>
                             </Dropdown.Menu>

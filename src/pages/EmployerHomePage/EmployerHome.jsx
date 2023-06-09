@@ -13,6 +13,7 @@ function EmployerHomePage({ session_id }) {
     const [showMatchModal, setShowMatchModal] = useState(false)
     const [matchesData, setMatchesData] = useState([])
 
+
     function loadMatchesData(data) {
         setMatchesData(data)
     }
@@ -55,6 +56,7 @@ function EmployerHomePage({ session_id }) {
             </div>
 
 
+
             {
                 !selectedOffer &&
                 <h1 className='employerHome__text--noOfferSelected'>
@@ -78,7 +80,7 @@ function EmployerHomePage({ session_id }) {
                 </div>
             }
 
-            <Modal className='' show={showMatchModal} onHide={() => setShowMatchModal(false)}>
+            <Modal id='modal' show={showMatchModal} onHide={() => setShowMatchModal(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>MATCH!</Modal.Title>
                 </Modal.Header>

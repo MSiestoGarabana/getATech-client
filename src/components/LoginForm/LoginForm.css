@@ -1,0 +1,9 @@
+#loginForm__container--body {
+    margin: 15%;
+    margin-top: 40%;
+}
+
+#loginForm__text {
+    color: rgb(138, 138, 138);
+    font-weight: 500;
+}

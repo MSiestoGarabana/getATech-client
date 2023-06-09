@@ -96,7 +96,7 @@ const CreateOfferForm = () => {
             {errors.length > 0 && <FormError>{errors.map(elm => <p>{elm}</p>)}</FormError>}
 
             <div className="d-grid">
-                <Button variant="dark" type="submit" disabled={loadingImage}>
+                <Button variant="primary" type="submit" disabled={loadingImage}>
                     {loadingImage ? "Loading Image" : "Register"}
                 </Button>
             </div>
