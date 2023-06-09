@@ -43,7 +43,10 @@ function manageEmployerRightSwipe(offer_id, employee, setShowMatch) {
     offerService
         .getOfferById(offer_id)
         .then(({ data: offer }) => {
-            if (offer.applicants.includes(employee_id)) {setShowMatch(true), manageMatch("employer", offer_id, employee) }
+            if (offer.applicants.includes(employee_id)) {
+                setShowMatch(true);
+                manageMatch("employer", offer_id, employee);
+            }
             if (!offer.applicants.includes(employee_id)) { manageNewPreselected(offer_id, employee) }
         })
         .catch(err => console.log(err))
@@ -56,7 +59,10 @@ function manageEmployeeRightSwipe(offer_id, employee, setShowMatchModal) {
     offerService
         .getOfferById(offer_id)
         .then(({ data: offer }) => {
-            if (offer.preselecteds.includes(employee_id)) {setShowMatchModal(true), manageMatch("employee", offer_id, employee) }
+            if (offer.preselecteds.includes(employee_id)) {
+                setShowMatchModal(true);
+                 manageMatch("employee", offer_id, employee);
+                 }
             if (!offer.preselecteds.includes(employee_id)) { manageNewApplicant(offer_id, employee) }
         })
         .catch(err=>console.log(err))
