@@ -23,13 +23,6 @@ function OfferList({ setSelectedOffer, selectedOffer, getOffersData, loadMatches
                 setOffersData(data)
             })
             .catch(err => console.log(err))
-        /*  offerService
-             .getAllOffers()
-             .then(({ data }) => {
-                 const filteredOffers = data.filter(offer => offer.owner === session_id)
-                 setOffersData(filteredOffers)
-             })
-             .catch(err => console.log(err)) */
     }
 
 
