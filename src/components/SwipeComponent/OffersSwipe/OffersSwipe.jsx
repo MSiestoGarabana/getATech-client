@@ -3,29 +3,33 @@ import { useState, useEffect } from "react"
 import offerService from '../../../services/offer.services'
 import { useSessionData } from '../../../utils/get-session-data'
 import { manageEmployeeRightSwipe } from '../../../utils/swipe-utils'
+
 import './OffersSwipe.css'
 import { Spinner } from 'react-bootstrap'
 
-function OffersSwipe({ session_id, setShowMatchModal }) {
+function OffersSwipe({ setShowMatchModal }) {
 
     const [offersData, setOffersData] = useState([])
+    console.log("OffersData in offersSwipe", offersData)
 
     const userData = useSessionData()
+    const { _id: session_id } = userData
+
+    console.log("session data in OfferSwipe", session_id)
+
 
     useEffect(() => {
-        loadOffersData()
-    }, [])
+        if (session_id) {
+            loadOffersData()
+        }
+    }, [session_id])
 
     function loadOffersData() {
+
         offerService
-            .getAllOffers()
+            .getNonAcceptedOffers()
             .then(({ data }) => {
-                let filteredOffers = data.filter((offer) => {
-                    return (
-                        !offer.applicants.includes(session_id)
-                    )
-                })
-                setOffersData(filteredOffers)
+                setOffersData(data)
             })
             .catch(err => console.log(err))
     }

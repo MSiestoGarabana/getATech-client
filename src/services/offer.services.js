@@ -28,6 +28,9 @@ class OfferService{
     getOffersByOwner() {
         return this.api.get(`/getOffersByOwner`)
     }
+    getNonAcceptedOffers() {
+        return this.api.get('/getNonAcceptedOffers')
+    }
 
     getOfferById(_id){
         return this.api.get(`/${_id}`)
