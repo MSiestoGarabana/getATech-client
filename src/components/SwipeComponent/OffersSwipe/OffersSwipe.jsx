@@ -41,12 +41,12 @@ function OffersSwipe({ session_id, setShowMatchModal }) {
             {offersData ? (
 
                 offersData.map(({ _id: offer_id, image, position, location, salary, logo, remoteVolume }) => (
+
                     <TinderCard
                         className='offersSwipe'
                         key={position}
                         onSwipe={direction => swiped(direction, offer_id)}
                     >
-
                         <div className='offerCard' id='offerCard'>
 
                             <img className='offerCard__image' src={image} />

@@ -8,7 +8,6 @@ import UserDetailsPage from '../pages/UserDetailsPage/UserDetailsPage'
 import PrivateRoute from './PrivateRoute'
 import EditUserPage from '../pages/EditUserPage/EditUserPage'
 import EditOfferPage from '../pages/EditOfferPage/EditOfferPage'
-import UserListPage from '../pages/UserListPage/UserListPage'
 import EmployeeHomePage from '../pages/EmployeeHomePage/EmployeeHomePage'
 import EmployerHomePage from '../pages/EmployerHomePage/EmployerHome'
 import WelcomePage from '../pages/WelcomePage/WelcomePage'
@@ -19,7 +18,6 @@ const AppRoutes = () => {
             <Route path="/" element={<WelcomePage />} />
             <Route path='/signup' element={<SignUpPage />} />
             <Route path='/login' element={<LoginPage />} />
-            <Route path='/user/list' element={<UserListPage />} />
 
             <Route element={<PrivateRoute />}>
                 <Route path='/user/:userId' element={<UserDetailsPage />} />
