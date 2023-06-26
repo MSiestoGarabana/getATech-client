@@ -11,17 +11,25 @@ function OfferList({ setSelectedOffer, selectedOffer, getOffersData, loadMatches
     const [offersData, setOffersData] = useState([])
 
     useEffect(() => {
-        getOffersData()
+        if (session_id) {
+            getOffersData()
+        }
     }, [session_id])
 
     function getOffersData() {
         offerService
-            .getAllOffers()
+            .getOffersByOwner()
             .then(({ data }) => {
-                const filteredOffers = data.filter(offer => offer.owner === session_id)
-                setOffersData(filteredOffers)
+                setOffersData(data)
             })
             .catch(err => console.log(err))
+        /*  offerService
+             .getAllOffers()
+             .then(({ data }) => {
+                 const filteredOffers = data.filter(offer => offer.owner === session_id)
+                 setOffersData(filteredOffers)
+             })
+             .catch(err => console.log(err)) */
     }
 
 

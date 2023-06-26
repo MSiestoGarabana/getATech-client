@@ -25,6 +25,9 @@ class OfferService{
     getAllOffers(){
         return this.api.get('/getAllOffers')
     }
+    getOffersByOwner() {
+        return this.api.get(`/getOffersByOwner`)
+    }
 
     getOfferById(_id){
         return this.api.get(`/${_id}`)
