@@ -23,6 +23,10 @@ class UserService{
         return this.api.get('/getAllUsers')
     }
 
+    getAvailableEmployees(offer_id){
+        return this.api.get(`/${offer_id}/getAvailableEmployees`)
+    }
+
     getUserById(id){
         return this.api.get(`/${id}`)
     }

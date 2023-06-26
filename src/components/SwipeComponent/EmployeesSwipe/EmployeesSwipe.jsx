@@ -9,33 +9,22 @@ import './EmployeesSwipe.css'
 function EmployeesSwipe({ selectedOffer, setShowMatch }) {
 
     let { _id: offer_id } = selectedOffer
-    let { discarded: usersInDiscarded } = selectedOffer
-    let { preselecteds: usersInPreselected } = selectedOffer
 
     const [employeesData, setEmployeesData] = useState([])
 
 
     useEffect(() => {
         loadEmployeesData()
-    }, [])
+    }, [offer_id])
 
     function loadEmployeesData() {
 
         userService
-            .getAllUsers()
-            .then(({ data: usersData }) => {
-
-                const filteredUsers = usersData.filter(({ role: userRole, _id: user_id }) => {
-                    return (userRole === 'EMPLOYEE' &&
-                        !usersInDiscarded.includes(user_id) &&
-                        !usersInPreselected.includes(user_id))
-                }
-
-                );
-                setEmployeesData(filteredUsers);
+            .getAvailableEmployees(offer_id)
+            .then(({ data }) => {
+                setEmployeesData(data)
             })
             .catch(err => console.log(err))
-
     }
 
     const navigate = useNavigate()
