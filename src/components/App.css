@@ -1,11 +1,6 @@
 .App {
   font-family: sans-serif;
-  height: 90vh;
-  width: 50vh;
-  overflow: hidden;
-  border-radius: 30px;
-  margin: 0 auto;
-  margin-top: 2%;
+  height: auto;
 }
 
 .routes__container {
